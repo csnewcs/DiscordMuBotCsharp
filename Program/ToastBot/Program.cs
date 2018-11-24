@@ -44,31 +44,13 @@ namespace 토스트봇
             string playerid = message.Author.Id.ToString();
             string toastid = "Your Bot ID";
             playertext = playertest.Split(' ');
-            Random random = new Random();
             //명령어들 (commands)
             if (toastid!=playerid && playertext[0] == "토스트")
             {
                 if (playertext[1] == "청소") { ToastBot.Clean clean = new ToastBot.Clean(); await clean.clean(message); }
                 else if (playertext[1] == "?" || playertext[1] == null) await message.Channel.SendMessageAsync("```현재 토스트가 할 수 있는 것들 (명령어 앞에 토스트를 붙여야 함)\n?:사용 가능한 기능들을 보여준다\n청소:서버에 영 좋지 못한 글이 올라왔을때 입력하면 청소해준다\n빵굽기:운을 테스트 하는 곳\n현재로는 이게 끝```");
                 else if (playertext[1] == "빵굽기") {ToastBot.roastbread roastbread = new ToastBot.roastbread(); await roastbread.Roast(message); }
-                else if (playertext[1] == "투자")
-                {
-                    playertext[2] = Regex.Replace(playertext[2], @"\D", "");
-                    int bread = int.Parse(playertext[2]);
-                    int result = bread;
-                    int ran = random.Next(1, 13);
-                    if (ran == 1)
-                    { result *= 4; await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 대성공해 " + result + "개의 빵을 받으셨습니다.");
-                        using (StreamWriter outputFile = new StreamWriter(@"..\..\Players.txt"))
-                        {
-                            
-                        }
-                    }
-                    else if (ran == 2 || ran == 3) { result *= 2; await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 성공해 " + result + "개의 빵을 받으셨습니다."); }
-                    else if (ran == 4 || ran == 5 || ran == 6) await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 본전을 쳐 " + result + "개의 빵을 받으셨습니다");
-                    else if (ran == 7 || ran == 8 || ran == 9) { result /= 4; await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 실패해 " + result + "개의 빵을 받으셨습니다."); }
-                    else { result /= 8; await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 폭망해 " + result + "개의 빵을 받으셨습니다."); }
-                }
+                else if (playertext[1] == "투자"){ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
                 else await message.Channel.SendMessageAsync("어? 그건 아직 배우지 않은 말인데, 담에 다시 와 뷁뷁");
             }
         }

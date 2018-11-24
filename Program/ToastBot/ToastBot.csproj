@@ -209,6 +209,7 @@
     <Compile Include="0 Clean.cs" />
     <Compile Include="0 question.cs" />
     <Compile Include="0 roastbread.cs" />
+    <Compile Include="invest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
