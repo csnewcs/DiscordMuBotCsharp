@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\배재현\\Desktop\\Discord 봇\\ToastBot\\ToastBot\\ToastBot.csproj",
+  "TargetFramework": "v4.7.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
