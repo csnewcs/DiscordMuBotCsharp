@@ -44,7 +44,6 @@ namespace 토스트봇
             string playerid = message.Author.Id.ToString();
             string toastid = "Your Bot ID";
             playertext = playertest.Split(' ');
-            Random random = new Random();
             //명령어들 (commands)
             if (toastid!=playerid && playertext[0] == "토스트")
             {
