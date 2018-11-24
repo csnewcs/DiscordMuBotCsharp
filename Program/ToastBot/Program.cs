@@ -19,7 +19,7 @@ namespace 토스트봇
         {
             DiscordSocketClient client = new DiscordSocketClient();
             client.Log += Log;
-            string token = "NTA5NTczMTc2ODI1NzQxMzEy.DtFS0Q.6W4-krD1ArOmYcl41JjG90LInkk";
+            string token = "Your Bot Token";
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
             client.MessageReceived += MessageReceived;
@@ -42,7 +42,7 @@ namespace 토스트봇
             string playertest = message.Content.ToString();
             string playername = message.Author.Username;
             string playerid = message.Author.Id.ToString();
-            string toastid = "509573176825741312";
+            string toastid = "Your Bot ID";
             playertext = playertest.Split(' ');
             Random random = new Random();
             //명령어들 (commands)
