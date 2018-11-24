@@ -48,7 +48,7 @@ namespace 토스트봇
             if (toastid!=playerid && playertext[0] == "토스트")
             {
                 if (playertext[1] == "청소") { ToastBot.Clean clean = new ToastBot.Clean(); await clean.clean(message); }
-                else if (playertext[1] == "?" || playertext[1] == null) await message.Channel.SendMessageAsync("```현재 토스트가 할 수 있는 것들 (명령어 앞에 토스트를 붙여야 함)\n?:사용 가능한 기능들을 보여준다\n청소:서버에 영 좋지 못한 글이 올라왔을때 입력하면 청소해준다\n빵굽기:운을 테스트 하는 곳\n현재로는 이게 끝```");
+                else if (playertext[1] == "?" || playertext[1] == null) { ToastBot.question question= new ToastBot.question(); await question.anfdmavy(message); }
                 else if (playertext[1] == "빵굽기") {ToastBot.roastbread roastbread = new ToastBot.roastbread(); await roastbread.Roast(message); }
                 else if (playertext[1] == "투자"){ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
                 else await message.Channel.SendMessageAsync("어? 그건 아직 배우지 않은 말인데, 담에 다시 와 뷁뷁");
