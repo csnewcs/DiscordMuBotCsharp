@@ -24,10 +24,6 @@ namespace ToastBot
             if (ran == 1)
             {
                 result *= 4; await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 대성공해 " + result + "개의 빵을 받으셨습니다.");
-                using (StreamWriter outputFile = new StreamWriter(@"..\..\Players.txt"))
-                {
-
-                }
             }
             else if (ran == 2 || ran == 3) { result *= 2; await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 성공해 " + result + "개의 빵을 받으셨습니다."); }
             else if (ran == 4 || ran == 5 || ran == 6) await message.Channel.SendMessageAsync(playername + "님은 " + bread + "개의 빵을 투자해서 본전을 쳐 " + result + "개의 빵을 받으셨습니다");
