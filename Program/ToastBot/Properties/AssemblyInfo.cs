@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // 지정되도록 할 수 있습니다.
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.0.3")]
-[assembly: AssemblyFileVersion("Alpha 0.0.3")]
+[assembly: AssemblyFileVersion("beta 0.1.0")]

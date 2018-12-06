@@ -43,15 +43,14 @@ namespace 토스트봇
             string playername = message.Author.Username;
             string playerid = message.Author.Id.ToString();
             string toastid = "Your Bot ID";
-            playertext = playertest.Split(' ');
+            playertext = playertest.Split(' ', '!');
             //명령어들 (commands)
-            if (toastid!=playerid && playertext[0] == "토스트")
+            if (toastid!=playerid && playertext[0] == "mu")
             {
                 if (playertext[1] == "청소") { ToastBot.Clean clean = new ToastBot.Clean(); await clean.clean(message); }
                 else if (playertext[1] == "?" || playertext[1] == null) { ToastBot.question question= new ToastBot.question(); await question.anfdmavy(message); }
                 else if (playertext[1] == "빵굽기") {ToastBot.roastbread roastbread = new ToastBot.roastbread(); await roastbread.Roast(message); }
                 else if (playertext[1] == "투자"){ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
-                else await message.Channel.SendMessageAsync("어? 그건 아직 배우지 않은 말인데, 담에 다시 와 뷁뷁");
             }
         }
         private Task Log(LogMessage msg)
