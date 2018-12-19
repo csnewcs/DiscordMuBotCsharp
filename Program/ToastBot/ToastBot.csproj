@@ -206,6 +206,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="0 bank.cs" />
     <Compile Include="0 Clean.cs" />
     <Compile Include="0 question.cs" />
     <Compile Include="0 roastbread.cs" />
