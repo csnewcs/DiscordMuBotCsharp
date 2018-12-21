@@ -48,10 +48,11 @@ namespace 토스트봇
             if (toastid!=playerid && playertext[0] == "mu")
             {
                 if (playertext[1] == "청소") { ToastBot.Clean clean = new ToastBot.Clean(); await clean.clean(message); }
-                else if (playertext[1] == "토스트" || playertext[1] == "") { ToastBot.question question= new ToastBot.question(); await question.anfdmavy(message); }
-                else if (playertext[1] == "빵굽기") {ToastBot.roastbread roastbread = new ToastBot.roastbread(); await roastbread.Roast(message); }
-                else if (playertext[1] == "투자"){ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
+                else if (playertext[1] == "토스트" || playertext[1] == "") { ToastBot.question question = new ToastBot.question(); await question.anfdmavy(message); }
+                else if (playertext[1] == "빵굽기") { ToastBot.roastbread roastbread = new ToastBot.roastbread(); await roastbread.Roast(message); }
+                else if (playertext[1] == "투자") { ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
                 else if (playertext[1] == "빵은행") { ToastBot.bank bank = new ToastBot.bank(); await bank.Bank(message); }
+                else if (playertext[1] == "순위") { ToastBot.rank rank = new ToastBot.rank(); await rank.tnsdnl(message); }
             }
         }
         private Task Log(LogMessage msg)
