@@ -211,6 +211,7 @@
     <Compile Include="0 question.cs" />
     <Compile Include="0 roastbread.cs" />
     <Compile Include="0 invest.cs" />
+    <Compile Include="0 Scoreboard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="0 rank.cs" />

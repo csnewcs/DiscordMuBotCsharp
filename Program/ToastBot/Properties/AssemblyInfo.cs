@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("ToastBot")]
-[assembly: AssemblyCopyright("Copyright © 2018 PMH Studio / 칠성 MIT Licenced")]
+[assembly: AssemblyCopyright("Copyright © 2018 PMH Studio / CS MIT Licenced")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
