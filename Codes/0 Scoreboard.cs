@@ -19,7 +19,6 @@ namespace ToastBot
 
         public async Task wjatn(SocketMessage message)
         {
-            await message.Channel.SendMessageAsync("지금 이 명령어는 개발중이다뮤! 다음에 버전업을 해서 이것이 완성되면 그때 사용해라 뮤!");
             string playerid = message.Author.Id.ToString();
             string[] notepad = File.ReadAllLines("Players.txt");
             int a = Array.IndexOf(notepad,playerid);
@@ -28,7 +27,8 @@ namespace ToastBot
                 string all = File.ReadAllText("Players.txt");
                 File.WriteAllText("Players.txt", all + "\n" + playerid + "\n30");
             }
-            int[] score = new int[5] { 0, 0, 0, 0, 0 };
+            notepad = File.ReadAllLines("Players.txt");
+            int[] score = new int[5] { -1, -1, -1, -1, -1 };
             ulong[] ottff = new ulong[5] { 0, 0, 0, 0, 0 };
             string[] output = new string[5];
             
@@ -49,24 +49,25 @@ namespace ToastBot
             string[] playername = getnickname(ottff, message);
 
             File.WriteAllLines("Players.txt", notepad);
-            if (score[0] > 0)
-            { output[0] = playername[0] + ": " + score[0]; }
+            File.WriteAllText("막힘.txt","1");
+            if (score[0] > -1)
+            { output[0] = playername[0] + ": " + score[0]+"개"; }
             else output[0] = "사...사람이 읍서요!";
-
-            if (score[1] > 0)
-            { output[1] = playername[1] + ": " + score[1]; }
+            File.WriteAllText("막힘.txt", "2");
+            if (score[1] > -1)
+            { output[1] = playername[1] + ": " + score[1]+"개"; }
             else output[1] = "사...사람이 읍서요!";
-
-            if (score[2] > 0)
-            { output[2] = playername[2] + ": " + score[2]; }
+            File.WriteAllText("막힘.txt", "3");
+            if (score[2] > -1)
+            { output[2] = playername[2] + ": " + score[2]+"개"; }
             else output[2] = "사...사람이 읍서요!";
-
-            if (score[3] > 0)
-            { output[3] = playername[3] + ": " + score[3]; }
+            File.WriteAllText("막힘.txt", "4");
+            if (score[3] > -1)
+            { output[3] = playername[3] + ": " + score[3]+"개"; }
             else output[3]= "사...사람이 읍서요!";
-
-            if (score[4] > 0)
-            { output[4] = playername[4] + ": " + score[4]; }
+            File.WriteAllText("막힘.txt", "5");
+            if (score[4] > -1)
+            { output[4] = playername[4] + ": " + score[4]+"개"; }
             else output[4] = "사...사람이 읍서요!";
 
             File.WriteAllLines("Players.txt", notepad);
@@ -75,7 +76,7 @@ namespace ToastBot
             byte green = (byte)random.Next(0, 256);
             byte blue = (byte)random.Next(0, 256);
             var builder = new EmbedBuilder()
-                .WithTitle("테스트중...")
+                .WithTitle("누가누가 빵이 가장 많을까뮤?")
                 .WithColor(new Color(red, green, blue))
                 .AddField("1등", "```"+output[0]+"```")
                 .AddField("2등", "```"+output[1]+"```")
@@ -111,7 +112,7 @@ namespace ToastBot
         public int chltkd()
         {
             string[] notepad = File.ReadAllLines("Players.txt");
-            int best = -1;
+            int best = -2;
             int arr = 2;
             int length = notepad.Length;
             while (arr < length)
@@ -123,7 +124,7 @@ namespace ToastBot
                 }
                 arr = arr + 3;
             }
-            notepad[loop] = "0";
+            notepad[loop] = @"-1";
             File.WriteAllLines("Players.txt", notepad);
             return best;
         }
