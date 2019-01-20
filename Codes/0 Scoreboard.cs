@@ -15,7 +15,7 @@ namespace ToastBot
 {
     class Scoreboard
     {
-        int loop = -1;
+        int loop = 2;
 
         public async Task wjatn(SocketMessage message)
         {
@@ -28,47 +28,49 @@ namespace ToastBot
                 File.WriteAllText("Players.txt", all + "\n" + playerid + "\n30");
             }
             notepad = File.ReadAllLines("Players.txt");
-            int[] score = new int[5] { -1, -1, -1, -1, -1 };
+            int[] score = new int[5] {-100, -100, -100, -100, -100 };
             ulong[] ottff = new ulong[5] { 0, 0, 0, 0, 0 };
             string[] output = new string[5];
             
             score[0] = chltkd();
             ottff[0] = ulong.Parse(notepad[loop - 1]);
-            loop = -1;
+
             score[1] = chltkd();
             ottff[1] = ulong.Parse(notepad[loop - 1]);
-            loop = -1;
+
             score[2] = chltkd();
             ottff[2] = ulong.Parse(notepad[loop - 1]);
-            loop = -1;
+
             score[3] = chltkd();
             ottff[3] = ulong.Parse(notepad[loop - 1]);
-            loop = -1;
+
             score[4] = chltkd();
             ottff[4] = ulong.Parse(notepad[loop - 1]);
+
             string[] playername = getnickname(ottff, message);
+            if (playername[0] == null) playername[0] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
+            if (playername[1] == null) playername[1] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
+            if (playername[2] == null) playername[2] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
+            if (playername[3] == null) playername[3] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
+            if (playername[4] == null) playername[4] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
 
             File.WriteAllLines("Players.txt", notepad);
-            File.WriteAllText("막힘.txt","1");
-            if (score[0] > -1)
+            if (score[0] > -3)
             { output[0] = playername[0] + ": " + score[0]+"개"; }
             else output[0] = "사...사람이 읍서요!";
-            File.WriteAllText("막힘.txt", "2");
-            if (score[1] > -1)
+            if (score[1] > -3)
             { output[1] = playername[1] + ": " + score[1]+"개"; }
             else output[1] = "사...사람이 읍서요!";
-            File.WriteAllText("막힘.txt", "3");
-            if (score[2] > -1)
+            if (score[2] > -3)
             { output[2] = playername[2] + ": " + score[2]+"개"; }
             else output[2] = "사...사람이 읍서요!";
-            File.WriteAllText("막힘.txt", "4");
-            if (score[3] > -1)
+            if (score[3] > -3)
             { output[3] = playername[3] + ": " + score[3]+"개"; }
             else output[3]= "사...사람이 읍서요!";
-            File.WriteAllText("막힘.txt", "5");
-            if (score[4] > -1)
+            if (score[4] > -3)
             { output[4] = playername[4] + ": " + score[4]+"개"; }
             else output[4] = "사...사람이 읍서요!";
+
 
             File.WriteAllLines("Players.txt", notepad);
             Random random = new Random();
@@ -111,20 +113,22 @@ namespace ToastBot
         }
         public int chltkd()
         {
+            loop = 2;
             string[] notepad = File.ReadAllLines("Players.txt");
-            int best = -2;
-            int arr = 2;
+            int best = int.Parse(notepad[2]);
+            int arr = 5;
             int length = notepad.Length;
-            while (arr < length)
+            while (arr <= length)
             {
-                if (int.Parse(notepad[arr]) > best)
+                int parse = int.Parse(notepad[arr]);
+                if (parse >= best)
                 {
-                    best = int.Parse(notepad[arr]);
-                    loop = loop + 3;
+                    best = parse;
+                    loop = arr;
                 }
                 arr = arr + 3;
             }
-            notepad[loop] = @"-1";
+            notepad[loop] = "-10";
             File.WriteAllLines("Players.txt", notepad);
             return best;
         }
