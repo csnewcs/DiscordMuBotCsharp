@@ -13,14 +13,14 @@ namespace 토스트봇
 {
     class Program
     {
-        //public 변수들
+        string[] info = File.ReadAllLines(@"..\..\..\..\..\..\info.txt");
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
             DiscordSocketClient client = new DiscordSocketClient();
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
-            string token = "Your Bot Tocken";
+            string token = info[0];
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
             client.MessageReceived += MessageReceived;
@@ -46,7 +46,7 @@ namespace 토스트봇
             string playertest = message.Content.ToString();
             string playername = message.Author.Username;
             string playerid = message.Author.Id.ToString();
-            string toastid = "Your Bot Client ID";
+            string toastid = info[1];
             string[] playertext = playertest.Split('!', ' ');
             Random random = new Random();
             //명령어 인식 & 실행
