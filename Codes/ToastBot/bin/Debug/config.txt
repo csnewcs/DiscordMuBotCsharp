@@ -1,0 +1,5 @@
+# Discord Bot ID
+012345678910111213
+
+# Discord Bot Token
+NMy-b0t.toKEnxxxxxxxxx.xxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxx-x
