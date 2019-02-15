@@ -117,7 +117,7 @@ namespace ToastBot
                         if (int.Parse(pricea[3]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 뮤트테크는 " + pricea[3] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
@@ -157,19 +157,232 @@ namespace ToastBot
                 }
                 else if (usermessage[3] == "TK전자")
                 {
+                    int mprice = int.Parse(pricea[4]) * number;
+                    if (playermoney < mprice)
+                    {
+                        var builder = new EmbedBuilder()
+                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .WithColor(new Color(red, green, blue));
+                        var embed = builder.Build();
+                        await message.Channel.SendMessageAsync(
+                            "",
+                            embed: embed)
+                            .ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        if (int.Parse(pricea[5]) < number)
+                        {
+                            var builder = new EmbedBuilder()
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 TK전자는 " + pricea[5] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                        else
+                        {
+                            int priceai = int.Parse(pricea[5]);
+                            priceai = int.Parse(pricea[5]) - number;
+                            pricea[5] = priceai.ToString();
+                            string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
+                            File.WriteAllText("price.txt", writehave);
+
+                            int where = Array.IndexOf(note, playerid);
+                            int write = int.Parse(note[where + 3]) + number;
+                            note[where + 2] = write.ToString();
+                            File.WriteAllLines("playerhave.txt", note);
+
+                            int pay = number * int.Parse(pricea[4]);
+                            int money = int.Parse(notepadt[player + 1]) - pay;
+                            notepadt[player + 1] = money.ToString();
+                            File.WriteAllLines("Players.txt", notepadt);
+
+                            var builder = new EmbedBuilder()
+                            .AddField("완료", "TK전자 " + number + "주 구입이 정상적으로 완료되었다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                    }
 
                 }
                 else if (usermessage[3] == "PC가전")
                 {
+                    int mprice = int.Parse(pricea[6]) * number;
+                    if (playermoney < mprice)
+                    {
+                        var builder = new EmbedBuilder()
+                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .WithColor(new Color(red, green, blue));
+                        var embed = builder.Build();
+                        await message.Channel.SendMessageAsync(
+                            "",
+                            embed: embed)
+                            .ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        if (int.Parse(pricea[7]) < number)
+                        {
+                            var builder = new EmbedBuilder()
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 PC가전은 " + pricea[5] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                        else
+                        {
+                            int priceai = int.Parse(pricea[7]);
+                            priceai = int.Parse(pricea[7]) - number;
+                            pricea[7] = priceai.ToString();
+                            string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
+                            File.WriteAllText("price.txt", writehave);
+
+                            int where = Array.IndexOf(note, playerid);
+                            int write = int.Parse(note[where + 4]) + number;
+                            note[where + 2] = write.ToString();
+                            File.WriteAllLines("playerhave.txt", note);
+
+                            int pay = number * int.Parse(pricea[6]);
+                            int money = int.Parse(notepadt[player + 1]) - pay;
+                            notepadt[player + 1] = money.ToString();
+                            File.WriteAllLines("Players.txt", notepadt);
+
+                            var builder = new EmbedBuilder()
+                            .AddField("완료", "PC가전 " + number + "주 구입이 정상적으로 완료되었다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                    }
+
 
                 }
                 else if (usermessage[3] == "피엠산업")
                 {
+                    int mprice = int.Parse(pricea[8]) * number;
+                    if (playermoney < mprice)
+                    {
+                        var builder = new EmbedBuilder()
+                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .WithColor(new Color(red, green, blue));
+                        var embed = builder.Build();
+                        await message.Channel.SendMessageAsync(
+                            "",
+                            embed: embed)
+                            .ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        if (int.Parse(pricea[9]) < number)
+                        {
+                            var builder = new EmbedBuilder()
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 피엠산업은 " + pricea[9] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                        else
+                        {
+                            int priceai = int.Parse(pricea[9]);
+                            priceai = int.Parse(pricea[9]) - number;
+                            pricea[9] = priceai.ToString();
+                            string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
+                            File.WriteAllText("price.txt", writehave);
+
+                            int where = Array.IndexOf(note, playerid);
+                            int write = int.Parse(note[where + 5]) + number;
+                            note[where + 2] = write.ToString();
+                            File.WriteAllLines("playerhave.txt", note);
+
+                            int pay = number * int.Parse(pricea[8]);
+                            int money = int.Parse(notepadt[player + 1]) - pay;
+                            notepadt[player + 1] = money.ToString();
+                            File.WriteAllLines("Players.txt", notepadt);
+
+                            var builder = new EmbedBuilder()
+                            .AddField("완료", "피엠산업 " + number + "주 구입이 정상적으로 완료되었다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                    }
+
 
                 }
                 else if (usermessage[3] == "비빔밥사")
                 {
+                    int mprice = int.Parse(pricea[10]) * number;
+                    if (playermoney < mprice)
+                    {
+                        var builder = new EmbedBuilder()
+                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .WithColor(new Color(red, green, blue));
+                        var embed = builder.Build();
+                        await message.Channel.SendMessageAsync(
+                            "",
+                            embed: embed)
+                            .ConfigureAwait(false);
+                    }
+                    else
+                    {
+                        if (int.Parse(pricea[11]) < number)
+                        {
+                            var builder = new EmbedBuilder()
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 피엠산업은 " + pricea[11] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                        else
+                        {
+                            int priceai = int.Parse(pricea[11]);
+                            priceai = int.Parse(pricea[11]) - number;
+                            pricea[11] = priceai.ToString();
+                            string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
+                            File.WriteAllText("price.txt", writehave);
 
+                            int where = Array.IndexOf(note, playerid);
+                            int write = int.Parse(note[where + 6]) + number;
+                            note[where + 2] = write.ToString();
+                            File.WriteAllLines("playerhave.txt", note);
+
+                            int pay = number * int.Parse(pricea[10]);
+                            int money = int.Parse(notepadt[player + 1]) - pay;
+                            notepadt[player + 1] = money.ToString();
+                            File.WriteAllLines("Players.txt", notepadt);
+
+                            var builder = new EmbedBuilder()
+                            .AddField("완료", "비빔밥사 " + number + "주 구입이 정상적으로 완료되었다뮤!")
+                            .WithColor(new Color(red, green, blue));
+                            var embed = builder.Build();
+                            await message.Channel.SendMessageAsync(
+                                "",
+                                embed: embed)
+                                .ConfigureAwait(false);
+                        }
+                    }
                 }
             }
             else if (usermessage[2] == "매도")
