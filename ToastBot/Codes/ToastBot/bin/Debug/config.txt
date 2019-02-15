@@ -3,3 +3,5 @@
 
 # Discord Bot Token
 NMy-b0t.toKEnxxxxxxxxx.xxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxx-x
+
+==== Configure File End ====
