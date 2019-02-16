@@ -48,7 +48,7 @@ namespace ToastBot
                     if (playermoney < hprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + hprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + hprice + "개의 빵을 투자하려 했지만... 토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -61,7 +61,7 @@ namespace ToastBot
                         if (int.Parse(pricea[1]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
@@ -104,7 +104,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -117,7 +117,7 @@ namespace ToastBot
                         if (int.Parse(pricea[3]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 뮤트테크는 " + pricea[3] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 뮤트테크는 " + pricea[3] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
@@ -161,7 +161,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -174,7 +174,7 @@ namespace ToastBot
                         if (int.Parse(pricea[5]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 TK전자는 " + pricea[5] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 TK전자는 " + pricea[5] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
@@ -218,7 +218,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -231,7 +231,7 @@ namespace ToastBot
                         if (int.Parse(pricea[7]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 PC가전은 " + pricea[5] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 PC가전은 " + pricea[5] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
@@ -276,7 +276,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -289,7 +289,7 @@ namespace ToastBot
                         if (int.Parse(pricea[9]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 피엠산업은 " + pricea[9] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 피엠산업은 " + pricea[9] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
@@ -334,7 +334,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "당신이 가지고 있는 빵의 갯수보다 더 많은 양의 빵을 투자 할 수 없다뮤! 현재 당신은 " + mprice + "개의 빵을 투자하려 했지만 당신은 " + playermoney + "개의 빵을 가지고 있다뮤!")
+                        .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 HC주식회사는 " + pricea[1] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -347,7 +347,7 @@ namespace ToastBot
                         if (int.Parse(pricea[11]) < number)
                         {
                             var builder = new EmbedBuilder()
-                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 피엠산업은 " + pricea[11] + "개의 주가 있지만 당신은 " + number + "개의 주를 사려고 했다뮤!")
+                            .AddField("주식 부족", "주식이 다 팔려버렸다뮤! 현재 피엠산업은 " + pricea[11] + "개의 주가 있지만 " + number + "개의 주를 사려고 했다뮤!")
                             .WithColor(new Color(red, green, blue));
                             var embed = builder.Build();
                             await message.Channel.SendMessageAsync(
