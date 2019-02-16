@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "e:\\Projects\\proj-µBotCsharp\\ToastBot\\Codes\\ToastBot\\ToastBot.csproj",
+  "TargetFramework": "v4.7.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
