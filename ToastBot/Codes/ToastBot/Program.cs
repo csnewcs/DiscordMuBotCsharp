@@ -20,13 +20,21 @@ namespace 토스트봇
             DiscordSocketClient client = new DiscordSocketClient();
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
-            string token = info[3];
+            string token = "";
+            try
+            {
+                token = Environment.GetEnvironmentVariable("muto");    
+            }
+            catch
+            {
+                token = info[4];
+            }
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
             client.GuildAvailable += Client_GuildAvailable;
-            await Task.Delay(-1); 
+            await Task.Delay(-1);
         }
 
         private Task Client_GuildAvailable(SocketGuild arg)
