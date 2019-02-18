@@ -2,6 +2,6 @@
 012345678910111213
 
 # Discord Bot Token
-NMy-b0t.toKEnxxxxxxxxx.xxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxx-x
+Bot Token
 
 ==== Configure File End ====

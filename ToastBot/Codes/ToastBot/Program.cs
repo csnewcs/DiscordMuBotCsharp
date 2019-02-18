@@ -13,7 +13,7 @@ namespace 토스트봇
 {
     class Program
     {
-        string[] info = File.ReadAllLines(@".\config.txt");
+        string[] info = File.ReadAllLines("config.txt");
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
