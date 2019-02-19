@@ -18,14 +18,12 @@ namespace ToastBot
             byte red = (byte)random.Next(0, 256);
             byte green = (byte)random.Next(0, 256);
             byte blue = (byte)random.Next(0, 256);
-
-            await message.Channel.SendMessageAsync("테스트중...");
+            
             string[] usermessage = message.Content.Split('!', ' ');
 
             if (usermessage[2] == "가격")
             {
-                Console.WriteLine("에엥ㅇ에ㅔㅔㅔ에ㅔ");
-                string send = File.ReadAllText("qusemd.txt");
+                string send = File.ReadAllText("변등.txt");
                 Console.WriteLine(send);
                 await message.Channel.SendMessageAsync("```" + send + "```");
             }
@@ -457,13 +455,13 @@ namespace ToastBot
                         int money = int.Parse(pricea[2]) * sell;
                         int wntlr = int.Parse(pricea[3]) + sell;
                         int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 2] = resultmoney.ToString();
+                        notepadt[player + 1] = resultmoney.ToString();
                         pricea[3] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
                         File.WriteAllLines("playerhave.txt", note);
                         File.WriteAllLines("Players.txt", notepadt);
                         var builder = new EmbedBuilder()
-                            .AddField("완료", "뮤트테크" + sell + "주 판매가 정상적으로 완료되었다뮤!")
+                            .AddField("완료", "뮤트테크 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -531,7 +529,7 @@ namespace ToastBot
                     else
                     {
                         int result = have - sell;
-                        note[he + 3] = result.ToString();
+                        note[he + 4] = result.ToString();
                         int money = int.Parse(pricea[6]) * sell;
                         int wntlr = int.Parse(pricea[7]) + sell;
                         int resultmoney = int.Parse(notepadt[player + 1]) + money;
@@ -630,7 +628,15 @@ namespace ToastBot
                 }
                 else
                 {
+                    var builder = new EmbedBuilder()
+                             .AddField("명령어 틀림", "뮤...? 당신이 뭘 하려고 했는지는 모르겠지만 틀렸다뮤! 사용법을 다시 알려줄게뮤!\n(뮤!|mu!)주식투자 (매수|매도|) (회사이름) (사고 팔 주 수)")
+                             .WithColor(new Color(red, green, blue));
 
+                    var embed = builder.Build();
+                    await message.Channel.SendMessageAsync(
+                        "",
+                        embed: embed)
+                        .ConfigureAwait(false);
                 }
             }
         }
