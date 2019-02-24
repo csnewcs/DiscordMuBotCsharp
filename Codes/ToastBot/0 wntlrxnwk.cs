@@ -19,12 +19,10 @@ namespace ToastBot
             byte green = (byte)random.Next(0, 256);
             byte blue = (byte)random.Next(0, 256);
 
-            await message.Channel.SendMessageAsync("테스트중...");
             string[] usermessage = message.Content.Split('!',' ');
 
             if (usermessage[2] == "가격")
             {
-                Console.WriteLine("에엥ㅇ에ㅔㅔㅔ에ㅔ");
                 string send = File.ReadAllText("qusemd.txt");
                 Console.WriteLine(send);
                 await message.Channel.SendMessageAsync("```" + send + "```");
