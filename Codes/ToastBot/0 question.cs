@@ -17,7 +17,6 @@ namespace ToastBot
     .WithTitle("토스트가 사용 가능한 명령어들 (괄호 안은 사용법)")
     .WithDescription("토스트봇 깃헙 사이트는 [여기](https://github.com/hj666c2/Toast)\n\n\n")
     .WithColor(new Color(0x1e5aeb))
-    .WithTimestamp(DateTimeOffset.FromUnixTimeMilliseconds(1543103823818))
     .WithFooter(footer =>
     {
         footer
@@ -37,7 +36,7 @@ namespace ToastBot
     .AddField("청소 (mu(뮤)!청소)", "```채팅방을 청소해준다뮤!```",true)
     .AddField("빵굽기 (mu(뮤)!빵굽기)", "```당신의 운을 시험해봐라뮤!\n만약 빵이 적당히 구워지면 투자가 가능한 빵이 된다뮤!```",true)
     .AddField("명예의 전당 (mu(뮤)!명예의전당 [0(한글), 1(영어)])", "```시즌별 1등과 1등이 가지고 있던 빵의 갯수를 DM으로 보내준다뮤!```",true)
-    .AddField("주식투자 (mu(뮤)!주식투자 [매수, 매도, 가격] [주식투자이름] [주 수])","주식투자를 한다뮤! 5분마다 주식 가격은 바뀐다뮤!",true)
+    .AddField("주식투자 (mu(뮤)!주식투자 [매수, 매도, 가격] [주식투자이름] [주 수])","```주식투자를 한다뮤! 5분마다 주식 가격은 바뀐다뮤!```",true)
     .AddField("빵은행 (mu(뮤)!빵은행)", "```현재 가지고 있는 빵의 갯수를 보여준다뮤!```",true)
     .AddField("순위 (mu(뮤)!순위)", "```현재 당신이 몇 등인지 알려준다뮤!\n1등과 얼마나 차이가 나는지도 알려준다뮤~★```",true)
     .AddField("상위권 (mu(뮤)!상위권)", "```빵을 가장 많이 가지고 있는 사람의 1위~5위까지 보여준다뮤~```",true)
