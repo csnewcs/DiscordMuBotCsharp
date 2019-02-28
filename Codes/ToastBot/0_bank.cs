@@ -24,7 +24,9 @@ namespace ToastBot
             string nickname = (message.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[0])?.Nickname;
             if (nickname == null) nickname = (message.Channel as SocketTextChannel)?.Guild?.GetUser(playeridu)?.Username;
             string[] array = File.ReadAllLines("Players.txt");
+            string[] wntlr = File.ReadAllLines("playerhave.txt");
             int arrav = Array.IndexOf(array, playerid);
+            int wntll = Array.IndexOf(wntlr, playerid);
             string turn = "";
             if (arrav >= 0)
             {
@@ -39,8 +41,15 @@ namespace ToastBot
                 turn = "30";
                 arrav = array.Length;
             }
+            if (wntll < 0)
+            {
+                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + playerid + "\n0\n0\n0\n0\n0\n0");
+                wntlr = File.ReadAllLines("playerhave.txt");
+            }
+            wntll = Array.IndexOf(wntlr, playerid);
             var builder = new EmbedBuilder()
             .AddField(nickname + "님이 가지고 있는 빵의 수는...", turn + "개다뮤~")
+            .AddField("그리고 주식 수는...", "HC주식회사: " + wntlr[wntll+1] + "주\n뮤트테크: " + wntlr[wntll+2] + "주\nTK전자: " + wntlr[wntll+3] + "주\nPC가전: " + wntlr[wntll+4] + "주\n피엠산업: " + wntlr[wntll+5] + "주\n비빔밥사: " + wntlr[wntll+6] + "주")
             .WithColor(new Color(red, green, blue));
             var embed = builder.Build();
             await message.Channel.SendMessageAsync(

@@ -231,8 +231,8 @@
     <Compile Include="0 rank.cs" />
     <Compile Include="0 roastbread.cs" />
     <Compile Include="0 invest.cs" />
-    <Compile Include="0 bank.cs" />
     <Compile Include="0 Scoreboard.cs" />
+    <Compile Include="0_bank.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="0 wntlrxnwk.cs" />

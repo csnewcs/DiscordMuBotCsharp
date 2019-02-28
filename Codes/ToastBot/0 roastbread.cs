@@ -21,29 +21,7 @@ namespace ToastBot
             int coin = random.Next(1, 7);
             string send = "";
             if (coin == 1)
-            { send = "차가워뮤...(빵 1개 생성)";
-                string[] array = File.ReadAllLines("Players.txt");
-                string playerid = message.Author.Id.ToString();
-                int arrav = Array.IndexOf(array, playerid);
-                string turn = "";
-                if (array.Contains(playerid))
-                {
-                    turn = array[arrav + 1];
-                }
-                else
-                {
-                    string a = File.ReadAllText("Players.txt");
-                    File.WriteAllText("Players.txt", a + "\n" + playerid + "\n30");
-                    turn = "30";
-                    arrav = array.Length - 1;
-                }
-                int rufrhk = int.Parse(turn) + 1;
-                array[arrav + 1] = rufrhk.ToString();
-                File.WriteAllLines("Players.txt", array);
-            }
-            else if (coin == 2)
-            {
-                send = "설익었다뮤~ (빵 3개 생성)";
+            { send = "차가워뮤...(빵 3개 생성)";
                 string[] array = File.ReadAllLines("Players.txt");
                 string playerid = message.Author.Id.ToString();
                 int arrav = Array.IndexOf(array, playerid);
@@ -63,8 +41,9 @@ namespace ToastBot
                 array[arrav + 1] = rufrhk.ToString();
                 File.WriteAllLines("Players.txt", array);
             }
-            else if (coin == 3)
-            { send = "적당하게 구워졌다뮤! (빵 5개 생성)";
+            else if (coin == 2)
+            {
+                send = "설익었다뮤~ (빵 5개 생성)";
                 string[] array = File.ReadAllLines("Players.txt");
                 string playerid = message.Author.Id.ToString();
                 int arrav = Array.IndexOf(array, playerid);
@@ -81,11 +60,11 @@ namespace ToastBot
                     arrav = array.Length - 1;
                 }
                 int rufrhk = int.Parse(turn) + 5;
-                array[arrav+1] = rufrhk.ToString();
+                array[arrav + 1] = rufrhk.ToString();
                 File.WriteAllLines("Players.txt", array);
             }
-            else if (coin == 4)
-            { send = "뜨겁다뮤~ (빵 3개 생성)";
+            else if (coin == 3)
+            { send = "적당하게 구워졌다뮤! (빵 10개 생성)";
                 string[] array = File.ReadAllLines("Players.txt");
                 string playerid = message.Author.Id.ToString();
                 int arrav = Array.IndexOf(array, playerid);
@@ -101,7 +80,28 @@ namespace ToastBot
                     turn = "30";
                     arrav = array.Length - 1;
                 }
-                int rufrhk = int.Parse(turn) + 3;
+                int rufrhk = int.Parse(turn) + 10;
+                array[arrav+1] = rufrhk.ToString();
+                File.WriteAllLines("Players.txt", array);
+            }
+            else if (coin == 4)
+            { send = "뜨겁다뮤~ (빵 5개 생성)";
+                string[] array = File.ReadAllLines("Players.txt");
+                string playerid = message.Author.Id.ToString();
+                int arrav = Array.IndexOf(array, playerid);
+                string turn = "";
+                if (array.Contains(playerid))
+                {
+                    turn = array[arrav + 1];
+                }
+                else
+                {
+                    string a = File.ReadAllText("Players.txt");
+                    File.WriteAllText("Players.txt", a + "\n" + playerid + "\n30");
+                    turn = "30";
+                    arrav = array.Length - 1;
+                }
+                int rufrhk = int.Parse(turn) + 5;
                 array[arrav + 1] = rufrhk.ToString();
                 File.WriteAllLines("Players.txt", array);
             }
