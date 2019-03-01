@@ -36,7 +36,7 @@ namespace ConsoleApp1
                 uphour += 1;
                 upminute -= 60;
             }
-            if (uphour > 23)
+            if (uphour >= 24)
             {
                 uphour -= 24;
             }
