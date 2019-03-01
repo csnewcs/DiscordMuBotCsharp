@@ -27,6 +27,12 @@ namespace ToastBot
             string[] wntlr = File.ReadAllLines("playerhave.txt");
             int arrav = Array.IndexOf(array, playerid);
             int wntll = Array.IndexOf(wntlr, playerid);
+            if (wntll < 0)
+            {
+                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + playerid + "\n0\n0\n0\n0\n0\n0");
+                wntlr = File.ReadAllLines("playerhave.txt");
+                wntll = Array.IndexOf(wntlr, playerid);
+            }
             string turn = "";
             if (arrav >= 0)
             {
