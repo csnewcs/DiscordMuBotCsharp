@@ -34,7 +34,7 @@ namespace ToastBot
             int where = Array.IndexOf(note, playerid);
             if (where < 0)
             {
-                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + playerid + "\n0\n0\n0\n0\n0\n0");
+                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + "\n" +playerid + "\n0\n0\n0\n0\n0\n0");
                 note = File.ReadAllLines("playerhave.txt");
             }
             int player = Array.IndexOf(notepadt, playerid);
