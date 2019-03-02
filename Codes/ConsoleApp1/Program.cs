@@ -106,7 +106,7 @@ namespace ConsoleApp1
             string[] pmar = notepad[4].Split(' ');
             int pm = int.Parse(pmar[0]);
             int PM = pm;
-            byte pma = (byte)random.Next(35,55);
+            byte pma = (byte)random.Next(40,56);
             byte pmb = (byte)random.Next(1, 101);
             byte pmc = (byte)random.Next(1, 21);
             if (pmb <= pma) pm += pmc;
@@ -121,7 +121,7 @@ namespace ConsoleApp1
             string[] bar = notepad[5].Split(' ');
             int bm = int.Parse(bar[0]);
             int BM = bm;
-            byte ba = (byte)random.Next(35,50);
+            byte ba = (byte)random.Next(40,56);
             byte bb = (byte)random.Next(1, 101);
             byte bc = (byte)random.Next(1, 13);
             if (bb <= ba) bm += bc;
