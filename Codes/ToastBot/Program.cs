@@ -13,11 +13,22 @@ namespace 토스트봇
 {
     class Program
     {
+        string mid = "";
         string[] info = File.ReadAllLines(@"..\..\..\..\..\..\info.txt");
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
-            string tok = Environment.GetEnvironmentVariable("muto");
+            string tok = "";
+            try
+            {
+                tok = Environment.GetEnvironmentVariable("muto");
+                mid = Environment.GetEnvironmentVariable("muid");
+            }
+            catch
+            {
+                tok = info[0];
+                mid = info[1];
+            }
             DiscordSocketClient client = new DiscordSocketClient();
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
@@ -47,11 +58,10 @@ namespace 토스트봇
             string playertest = message.Content.ToString();
             string playername = message.Author.Username;
             string playerid = message.Author.Id.ToString();
-            string toastid = info[1];
             string[] playertext = playertest.Split('!', ' ');
             Random random = new Random();
             //명령어 인식 & 실행
-            if (toastid!=playerid)
+            if (mid!=playerid)
             {
                 if (playertext[0] == "mu" || playertext[0] == "뮤")
                 {
