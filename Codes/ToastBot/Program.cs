@@ -17,10 +17,11 @@ namespace 토스트봇
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
+            string tok = Environment.GetEnvironmentVariable("muto");
             DiscordSocketClient client = new DiscordSocketClient();
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
-            string token = info[0];
+            string token = tok;
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
             client.MessageReceived += MessageReceived;
