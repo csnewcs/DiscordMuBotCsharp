@@ -8,6 +8,5 @@
 
 사용법 <br />
 1. 파일을 내려받는다 <br />
-2. 내려받은 파일 바로 밖에 info.txt라는 파일을 만든다 <br />
-3. 거기에 첫번째 줄에는 봇의 토큰을 두번째 줄에는 봇의 클라이언트 ID를 넣는다 <br />
-4. Codes\ToastBot\bin\Debug\ToastBot.exe를 실행한다
+2. 계정 환경 변수에 muto와 muid를 만들어서 muto에는 봇의 토큰을 muid에는 봇의 클라이언트 ID를 넣는다 <br />
+3. Codes\ToastBot\bin\Debug\ToastBot.exe를 실행한다
