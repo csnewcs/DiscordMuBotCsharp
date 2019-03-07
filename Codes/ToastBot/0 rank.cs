@@ -33,11 +33,11 @@ namespace ToastBot
             }
 
             else biggest = int.Parse(money[he + 1]);
-            int rank = 1;
+            int rank = 0;
             int playermoney = biggest;
             while (arr <= money.Length)
             {
-                if (int.Parse(money[arr]) >= biggest)
+                if (int.Parse(money[arr]) > biggest)
                 {
                     biggest = int.Parse(money[arr]);
                     rank++;
