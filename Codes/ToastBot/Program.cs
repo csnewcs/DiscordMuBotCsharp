@@ -14,11 +14,11 @@ namespace 토스트봇
     class Program
     {
         string mid = "";
-        string[] info = File.ReadAllLines(@"..\..\..\..\..\..\info.txt");
+        string tok = "";
+        string[] info;
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
-            string tok = "";
             try
             {
                 tok = Environment.GetEnvironmentVariable("muto");
@@ -26,14 +26,14 @@ namespace 토스트봇
             }
             catch
             {
+                info = File.ReadAllLines(@"..\..\..\..\..\..\info.txt");
                 tok = info[0];
                 mid = info[1];
             }
             DiscordSocketClient client = new DiscordSocketClient();
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
-            string token = tok;
-            await client.LoginAsync(TokenType.Bot, token);
+            await client.LoginAsync(TokenType.Bot, tok);
             await client.StartAsync();
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
