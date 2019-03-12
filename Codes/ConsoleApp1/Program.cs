@@ -22,7 +22,7 @@ namespace ConsoleApp1
 
             a:
             Thread.Sleep(1000);
-            while (hour < uphour || minute < upminute)
+            while (hour == uphour || minute == upminute)
             {
                 time = DateTime.Now;
                 hour = (byte)time.Hour;
@@ -31,12 +31,12 @@ namespace ConsoleApp1
             }
             notepadout = "마지막 업데이트 시각: " + uphour + "시 " + upminute + "분\n\n회사명    원래 가격    현재 가격    상, 하락 폭    남은 주 수";
             upminute += 5;
-            if (upminute == 60)
+            if (upminute <= 60)
             {
                 uphour += 1;
                 upminute -= 60;
             }
-            if (uphour == 24)
+            if (uphour <= 24)
             {
                 uphour -= 24;
             }
