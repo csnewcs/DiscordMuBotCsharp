@@ -70,7 +70,7 @@ namespace ToastBot
                     if (playermoney < hprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + hprice + "개의 빵을 투자하려 했지만... 토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + hprice + "개의 빵을 투자하려 했지만... 토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -126,7 +126,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만... 토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만... 토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -183,7 +183,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -240,7 +240,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -298,7 +298,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -356,7 +356,7 @@ namespace ToastBot
                     if (playermoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는" + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(

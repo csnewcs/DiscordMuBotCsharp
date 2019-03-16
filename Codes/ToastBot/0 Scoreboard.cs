@@ -50,10 +50,10 @@ namespace ToastBot
 
             string[] playername = getnickname(ottff, message);
             if (playername[0] == null) playername[0] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[1] == null) playername[1] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[2] == null) playername[2] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[3] == null) playername[3] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[4] == null) playername[4] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[1] == null) playername[1] = client.GetUser(ottff[1]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[2] == null) playername[2] = client.GetUser(ottff[2]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[3] == null) playername[3] = client.GetUser(ottff[3]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[4] == null) playername[4] = client.GetUser(ottff[4]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
 
             File.WriteAllLines("Players.txt", notepad);
             if (score[0] > -3)
