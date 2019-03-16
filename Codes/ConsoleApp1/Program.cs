@@ -21,7 +21,7 @@ namespace ConsoleApp1
 
             a:
             Thread.Sleep(1000);
-            while (hour == uphour || minute == upminute)
+            while (hour != uphour || minute != upminute)
             {
                 time = DateTime.Now;
                 hour = (byte)time.Hour;
