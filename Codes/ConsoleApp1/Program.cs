@@ -18,7 +18,6 @@ namespace ConsoleApp1
             byte minute = (byte)time.Minute;
             byte uphour = hour;
             byte upminute = minute;
-            string notepadout;
 
             a:
             Thread.Sleep(1000);
@@ -29,18 +28,16 @@ namespace ConsoleApp1
                 minute = (byte)time.Minute;
                 Thread.Sleep(10000);
             }
-            notepadout = "마지막 업데이트 시각: " + uphour + "시 " + upminute + "분\n\n회사명    원래 가격    현재 가격    상, 하락 폭    남은 주 수";
             upminute += 5;
-            if (upminute <= 60)
+            if (upminute >= 60)
             {
                 uphour += 1;
                 upminute -= 60;
             }
-            if (uphour <= 24)
+            if (uphour >= 24)
             {
                 uphour -= 24;
             }
-
 
             string[] notepad = File.ReadAllLines("price.txt");
             string[] har = notepad[0].Split(' ');
@@ -68,7 +65,6 @@ namespace ConsoleApp1
             mar[0] = m.ToString();
             string mf = mar[0] + " " + mar[1];
             notepad[1] = mf;
-            notepadout += "\n뮤트테크        " + 뮤 + "       " + m + "              " + mc + "            " + mar[1];
 
             string[] tar = notepad[2].Split(' ');
             int t = int.Parse(tar[0]);
@@ -82,7 +78,6 @@ namespace ConsoleApp1
             tar[0] = t.ToString();
             string tf = tar[0] + " " + tar[1];
             notepad[2] = tf;
-            notepadout += "\nTK전자           " + TK + "          " + t + "           " + tc + "          " + tar[1];
 
             string[] par = notepad[3].Split(' ');
             int p = int.Parse(par[0]);
@@ -96,7 +91,6 @@ namespace ConsoleApp1
             par[0] = p.ToString();
             string pf = par[0] + " " + par[1];
             notepad[3] = pf;
-            notepadout += "\nPC가전          " + PC + "         " + p + "             " + pc + "           " + par[1];
 
             string[] pmar = notepad[4].Split(' ');
             int pm = int.Parse(pmar[0]);
@@ -110,7 +104,6 @@ namespace ConsoleApp1
             pmar[0] = pm.ToString();
             string pmf = pmar[0] + " " + pmar[1];
             notepad[4] = pmf;
-            notepadout += "\n피엠산업        " + PM + "          " + pm + "             " + pmc + "            " + pmar[1];
 
             string[] bar = notepad[5].Split(' ');
             int bm = int.Parse(bar[0]);
@@ -124,13 +117,11 @@ namespace ConsoleApp1
             bar[0] = bm.ToString();
             string bmf = bar[0] + " " + bar[1];
             notepad[5] = bmf;
-            notepadout += "\n비빔밥사         " + BM+ "            " + bm + "              " + bc + "          " + bar[1];
 
             Console.WriteLine("\n\n" + time.Day + "일 " + hour + "시 " + minute + "분 " + time.Second + "초 업데이트 완료");
             Console.WriteLine("\n다음 업데이트 시각: " + uphour + "시 " + upminute + "분");
-            notepadout += "\n\n다음 업데이트 시각: " + uphour + "시 " + upminute + "분";
+            File.WriteAllText("time.txt",hour+"시 " + minute+"분\n" + uphour+"시 " + upminute+"분");
             File.WriteAllLines("price.txt", notepad);
-            File.WriteAllText("변등.txt",notepadout);
 
             goto a;
         }

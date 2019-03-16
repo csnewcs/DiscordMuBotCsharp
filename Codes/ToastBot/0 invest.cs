@@ -17,6 +17,7 @@ namespace ToastBot
             string[] ab = message.Content.Split('!', ' ');
             if (ab[2] == "0") await message.Author.SendFileAsync("koseason.txt");
             else if (ab[2] == "1") await message.Author.SendFileAsync("enseason.txt");
+            await message.Channel.SendFileAsync("DM을 확인해달라뮤!");
         }
     }
 }

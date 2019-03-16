@@ -19,6 +19,7 @@ namespace ToastBot
 
         public async Task wjatn(SocketMessage message)
         {
+            DiscordSocketClient client = new DiscordSocketClient();
             string playerid = message.Author.Id.ToString();
             string[] notepad = File.ReadAllLines("Players.txt");
             int a = Array.IndexOf(notepad,playerid);
@@ -48,11 +49,11 @@ namespace ToastBot
             ottff[4] = ulong.Parse(notepad[loop - 1]);
 
             string[] playername = getnickname(ottff, message);
-            if (playername[0] == null) playername[0] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
-            if (playername[1] == null) playername[1] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
-            if (playername[2] == null) playername[2] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
-            if (playername[3] == null) playername[3] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
-            if (playername[4] == null) playername[4] = "이 서버에 존재하지 않는 사람이다뮤≡∽≡";
+            if (playername[0] == null) playername[0] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[1] == null) playername[1] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[2] == null) playername[2] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[3] == null) playername[3] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            if (playername[4] == null) playername[4] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
 
             File.WriteAllLines("Players.txt", notepad);
             if (score[0] > -3)
