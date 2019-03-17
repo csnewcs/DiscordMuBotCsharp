@@ -236,6 +236,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="0 wntlrxnwk.cs" />
+    <Compile Include="0 remittance.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

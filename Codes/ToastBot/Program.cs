@@ -73,6 +73,7 @@ namespace 토스트봇
                     else if (playertext[1] == "순위") { ToastBot.rank rank = new ToastBot.rank(); await rank.tnsdnl(message); }
                     else if (playertext[1] == "상위권") { ToastBot.Scoreboard scoreboard = new ToastBot.Scoreboard(); await scoreboard.wjatn(message); }
                     else if (playertext[1] == "주식투자") { ToastBot.wntlrxnwk wntlrxnwk = new ToastBot.wntlrxnwk(); await wntlrxnwk.wntlr(message); }
+                    else if (playertext[1] == "송금") { ToastBot.remittance remittance = new ToastBot.remittance(); await remittance.remi(message); }
                 }
             }
         }
