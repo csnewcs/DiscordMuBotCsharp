@@ -14,24 +14,15 @@ namespace 토스트봇
     class Program
     {
         ulong mid;
-        string tok = "";
         string[] info;
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
             DiscordSocketClient client = new DiscordSocketClient();
-            try
-            {
-                tok = Environment.GetEnvironmentVariable("muto");
-            }
-            catch
-            {
-                info = File.ReadAllLines(@"..\..\..\..\..\..\info.txt");
-                tok = info[0];
-            }
+            string token = Environment.GetEnvironmentVariable("muto");
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
-            await client.LoginAsync(TokenType.Bot, tok);
+            await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
