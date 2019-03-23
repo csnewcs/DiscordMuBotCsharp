@@ -19,7 +19,7 @@ namespace 토스트봇
         {
             string token = "Mubot";
             DiscordSocketClient client = new DiscordSocketClient();
-            token = Environment.GetEnvironmentVariable("mutoken");
+            token = Environment.GetEnvironmentVariable("muto");
             client.Log += Log;
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
