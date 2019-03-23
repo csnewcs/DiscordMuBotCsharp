@@ -29,12 +29,12 @@ namespace ToastBot
                     .WithTitle("현재 주식의 가격과 남은 주 수")
                     .WithColor(red,green,blue)
                     .AddField("마지막 업데이트 시각",update[0],false)
-                    .AddField("HC주식회사", "```" + getprice[0] + "원\t" + getprice[1] + "주```", false)
-                    .AddField("뮤트테크", "```" + getprice[2] + "원\t" + getprice[3] + "주```", false)
-                    .AddField("TK전자", "```" + getprice[4] + "원\t" + getprice[5] + "주```", false)
-                    .AddField("PC가전", "```" + getprice[6]+ "원\t" + getprice[7] + "주```",false)
-                    .AddField("피엠산업", "```" + getprice[8] + "원\t" + getprice[9] + "주```", false)
-                    .AddField("비빔밥사", "```" + getprice[10] + "원\t" + getprice[11] + "주```", false)
+                    .AddField("HC주식회사", "```" + getprice[0] + "빵\t" + getprice[1] + "주```", false)
+                    .AddField("뮤트테크", "```" + getprice[2] + "빵\t" + getprice[3] + "주```", false)
+                    .AddField("TK전자", "```" + getprice[4] + "빵\t" + getprice[5] + "주```", false)
+                    .AddField("PC가전", "```" + getprice[6]+ "빵\t" + getprice[7] + "주```",false)
+                    .AddField("피엠산업", "```" + getprice[8] + "빵\t" + getprice[9] + "주```", false)
+                    .AddField("비빔밥사", "```" + getprice[10] + "빵\t" + getprice[11] + "주```", false)
                     .AddField("다음 업데이트 시각",update[1],false);
                 Embed embed = builder.Build();
                 await message.Channel.SendMessageAsync("",embed:embed).ConfigureAwait(false);
@@ -44,10 +44,16 @@ namespace ToastBot
             string[] notepadt = File.ReadAllLines("Players.txt");
             string playerid = message.Author.Id.ToString();
             int where = Array.IndexOf(note, playerid);
+            int moneywh = Array.IndexOf(notepadt, playerid);
             if (where < 0)
             {
                 File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + "\n" +playerid + "\n0\n0\n0\n0\n0\n0");
                 note = File.ReadAllLines("playerhave.txt");
+            }
+            if (moneywh < 0)
+            {
+                string notepad = File.ReadAllText("Players.txt");
+                File.WriteAllText("Players.txt", notepad + "\n" + playerid + "\n30");
             }
             int player = Array.IndexOf(notepadt, playerid);
             int number = int.Parse(usermessage[4]);

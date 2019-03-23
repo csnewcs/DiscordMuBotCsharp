@@ -43,10 +43,11 @@ namespace ToastBot
     .AddField("주의할 점", "```빵의 갯수를 저장하는 곳은 서버가 아니고 호스팅하는 사람의 컴퓨터 속에 있다뮤! \n그래서 서버가 달라도 빵은 계속 이어지고 순위 관련된 명령어는 다른 서버에 있는 사람도 포함한다뮤! \n만약에 이것를 원하지 않는다면 서버에 따라 봇을 새로 만들어서 코드를 집어넣는걸 추천한다뮤~~```")
     .AddField("개발중...","송금");
             var embed = builder.Build();
-            await message.Channel.SendMessageAsync(
+            await message.Author.SendMessageAsync(
                 "",
                 embed: embed)
                 .ConfigureAwait(true);
+            await message.Channel.SendMessageAsync("DM을 확인해주세요");
         }
     }
 }

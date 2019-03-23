@@ -13,24 +13,22 @@ namespace 토스트봇
 {
     class Program
     {
-        string mid = "";
+        ulong mid;
         string tok = "";
         string[] info;
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
+            DiscordSocketClient client = new DiscordSocketClient();
             try
             {
                 tok = Environment.GetEnvironmentVariable("muto");
-                mid = Environment.GetEnvironmentVariable("muid");
             }
             catch
             {
                 info = File.ReadAllLines(@"..\..\..\..\..\..\info.txt");
                 tok = info[0];
-                mid = info[1];
             }
-            DiscordSocketClient client = new DiscordSocketClient();
             Process.Start("ConsoleApp1.exe");
             client.Log += Log;
             await client.LoginAsync(TokenType.Bot, tok);
@@ -38,6 +36,7 @@ namespace 토스트봇
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
             client.GuildAvailable += Client_GuildAvailable;
+            mid = client.CurrentUser.Id;
             await Task.Delay(-1); 
         }
 
@@ -57,7 +56,7 @@ namespace 토스트봇
             //사용자가 입력한 말 변수에 입력 (Word entered by users enter in Variables)
             string playertest = message.Content.ToString();
             string playername = message.Author.Username;
-            string playerid = message.Author.Id.ToString();
+            ulong playerid = message.Author.Id;
             string[] playertext = playertest.Split('!', ' ');
             Random random = new Random();
             //명령어 인식 & 실행
