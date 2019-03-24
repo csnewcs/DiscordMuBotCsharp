@@ -39,7 +39,6 @@ namespace 토스트봇
         public async Task MessageReceived(SocketMessage message)
         {
             DiscordSocketClient client = new DiscordSocketClient();
-            ulong mid = client.CurrentUser.Id;
             client.Log += Log;
             //사용자가 입력한 말 변수에 입력 (Word entered by users enter in Variables)
             string playertest = message.Content.ToString();
@@ -48,7 +47,7 @@ namespace 토스트봇
             string[] playertext = playertest.Split('!', ' ');
             Random random = new Random();
             //명령어 인식 & 실행
-            if (mid!=playerid)
+            if (true)
             {
                 if (playertext[0] == "mu" || playertext[0] == "뮤")
                 {
