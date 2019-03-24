@@ -73,7 +73,16 @@ namespace 토스트봇
         }
         public string muto()
         {
-            string muto = Environment.GetEnvironmentVariable("muto");
+            string muto = "";
+            try
+            {
+                muto = Environment.GetEnvironmentVariable("muto");
+            }
+            catch
+            {
+                string[] config = File.ReadAllLines("config.txt");
+                muto = config[0];
+            }
             return muto;
         }
     }
