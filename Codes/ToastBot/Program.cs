@@ -17,9 +17,8 @@ namespace 토스트봇
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
-            string token = "Mubot";
+            string token = muto();
             DiscordSocketClient client = new DiscordSocketClient();
-            token = Environment.GetEnvironmentVariable("muto");
             client.Log += Log;
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
@@ -71,6 +70,11 @@ namespace 토스트봇
         {
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
+        }
+        public string muto()
+        {
+            string muto = Environment.GetEnvironmentVariable("muto");
+            return muto;
         }
     }
 }
