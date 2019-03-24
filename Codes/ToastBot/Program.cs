@@ -80,8 +80,7 @@ namespace 토스트봇
             }
             catch
             {
-                string[] config = File.ReadAllLines("config.txt");
-                muto = config[0];
+                muto = File.ReadAllText("config.txt");
             }
             return muto;
         }
