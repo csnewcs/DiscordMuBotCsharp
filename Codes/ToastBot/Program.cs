@@ -13,7 +13,6 @@ namespace 토스트봇
 {
     class Program
     {
-        ulong mid;
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
@@ -26,7 +25,6 @@ namespace 토스트봇
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
             client.GuildAvailable += Client_GuildAvailable;
-            mid = client.CurrentUser.Id;
             await Task.Delay(-1); 
         }
 
@@ -40,8 +38,8 @@ namespace 토스트봇
 
         public async Task MessageReceived(SocketMessage message)
         {
-            
             DiscordSocketClient client = new DiscordSocketClient();
+            ulong mid = client.CurrentUser.Id;
             client.Log += Log;
             //사용자가 입력한 말 변수에 입력 (Word entered by users enter in Variables)
             string playertest = message.Content.ToString();
@@ -73,7 +71,7 @@ namespace 토스트봇
         }
         public string muto()
         {
-            string muto = "";
+            string muto = "MuBot Token";
             try
             {
                 muto = Environment.GetEnvironmentVariable("muto");
