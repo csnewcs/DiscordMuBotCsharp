@@ -46,7 +46,7 @@ namespace ConsoleApp1
             byte ha = (byte)random.Next(45,58);
             byte hb = (byte)random.Next(1, 101);
             byte hc = (byte)random.Next(1, 41);
-            if (hb >= ha) h += hc;
+            if (hb <= ha) h += hc;
             else h -= hc;
             if (h <= 0) { h = 원래; hc = 0; }
             har[0] = h.ToString();
@@ -59,7 +59,7 @@ namespace ConsoleApp1
             byte ma = (byte)random.Next(44,57);
             byte mb = (byte)random.Next(1, 101);
             byte mc = (byte)random.Next(1, 33);
-            if (mb >= ma) m += mc;
+            if (mb <= ma) m += mc;
             else m -= mc;
             if (m <= 0) { m = 뮤; mc = 0; }
             mar[0] = m.ToString();
@@ -72,7 +72,7 @@ namespace ConsoleApp1
             byte ta = (byte)random.Next(35,46);
             byte tb = (byte)random.Next(1, 101);
             byte tc = (byte)random.Next(1, 101);
-            if (tb >= ta) t += tc;
+            if (tb <= ta) t += tc;
             else t -= tc;
             if (t <= 0) { t = TK; tc = 0; }
             tar[0] = t.ToString();
@@ -85,7 +85,7 @@ namespace ConsoleApp1
             byte pa = (byte)random.Next(43,56);
             byte pb = (byte)random.Next(1, 101);
             byte pc = (byte)random.Next(1, 26);
-            if (pb >= pa) p += pc;
+            if (pb <= pa) p += pc;
             else p -= pc;
             if (p <= 0) { p = PC; pc = 0; }
             par[0] = p.ToString();
@@ -98,7 +98,7 @@ namespace ConsoleApp1
             byte pma = (byte)random.Next(42,54);
             byte pmb = (byte)random.Next(1, 101);
             byte pmc = (byte)random.Next(1, 21);
-            if (pmb >= pma) pm += pmc;
+            if (pmb <= pma) pm += pmc;
             else pm -= pmc;
             if (pm <= 0) { pm = PM; pmc = 0; }
             pmar[0] = pm.ToString();
@@ -111,7 +111,7 @@ namespace ConsoleApp1
             byte ba = (byte)random.Next(41,53);
             byte bb = (byte)random.Next(1, 101);
             byte bc = (byte)random.Next(1, 13);
-            if (bb >= ba) bm += bc;
+            if (bb <= ba) bm += bc;
             else bm -= bc;
             if (bm <= 0) { bm = BM; bc = 0; }
             bar[0] = bm.ToString();

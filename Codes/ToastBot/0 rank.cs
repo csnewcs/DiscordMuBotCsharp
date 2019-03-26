@@ -33,16 +33,16 @@ namespace ToastBot
             }
 
             else biggest = int.Parse(money[he + 1]);
-            int rank = 0;
+            int rank = 1;
             int playermoney = biggest;
-            while (arr <= money.Length)
+            while (arr <= money.Length-1)
             {
                 if (int.Parse(money[arr]) > biggest)
                 {
                     biggest = int.Parse(money[arr]);
                     rank++;
                 }
-                arr = arr+3;
+                arr = arr + 3;
             }
             int ckdl = biggest - playermoney;
             var builder = new EmbedBuilder()

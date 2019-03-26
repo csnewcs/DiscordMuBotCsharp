@@ -29,6 +29,7 @@ namespace ToastBot
                 File.WriteAllText("Players.txt", all + "\n" + playerid + "\n30");
             }
             notepad = File.ReadAllLines("Players.txt");
+            string notuse = File.ReadAllText("Players.txt");
             int[] score = new int[5] {-100, -100, -100, -100, -100 };
             ulong[] ottff = new ulong[5] { 0, 0, 0, 0, 0 };
             string[] output = new string[5];
@@ -56,24 +57,24 @@ namespace ToastBot
             if (playername[4] == null) playername[4] = client.GetUser(ottff[4]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
 
             File.WriteAllLines("Players.txt", notepad);
-            if (score[0] > -3)
+            if (score[0] > -1)
             { output[0] = playername[0] + ": " + score[0]+"개"; }
             else output[0] = "사...사람이 읍서요!";
-            if (score[1] > -3)
+            if (score[1] > -1)
             { output[1] = playername[1] + ": " + score[1]+"개"; }
             else output[1] = "사...사람이 읍서요!";
-            if (score[2] > -3)
+            if (score[2] > -1)
             { output[2] = playername[2] + ": " + score[2]+"개"; }
             else output[2] = "사...사람이 읍서요!";
-            if (score[3] > -3)
+            if (score[3] > -1)
             { output[3] = playername[3] + ": " + score[3]+"개"; }
             else output[3]= "사...사람이 읍서요!";
-            if (score[4] > -3)
+            if (score[4] > -1)
             { output[4] = playername[4] + ": " + score[4]+"개"; }
             else output[4] = "사...사람이 읍서요!";
 
 
-            File.WriteAllLines("Players.txt", notepad);
+            File.WriteAllText("Players.txt", notuse);
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);
             byte green = (byte)random.Next(0, 256);
@@ -129,7 +130,7 @@ namespace ToastBot
                 }
                 arr = arr + 3;
             }
-            notepad[loop] = "-10";
+            notepad[loop] = "-1";
             File.WriteAllLines("Players.txt", notepad);
             return best;
         }
