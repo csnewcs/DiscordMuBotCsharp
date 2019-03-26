@@ -25,16 +25,25 @@ namespace ToastBot
             {
                 string[] getprice = File.ReadAllText("price.txt").Split(' ', '\n');
                 string[] update = File.ReadAllLines("time.txt");
+                int hc = int.Parse(update[2]) - int.Parse(getprice[0]);
+                int mu = int.Parse(update[3]) - int.Parse(getprice[1]);
+                int tk = int.Parse(update[4]) - int.Parse(getprice[2]);
+                int pc = int.Parse(update[5]) - int.Parse(getprice[3]);
+                int pm = int.Parse(update[6]) - int.Parse(getprice[4]);
+                int bm = int.Parse(update[7]) - int.Parse(getprice[5]);
                 EmbedBuilder builder = new EmbedBuilder()
                     .WithTitle("현재 주식의 가격과 남은 주 수")
                     .WithColor(red,green,blue)
                     .AddField("마지막 업데이트 시각",update[0],false)
-                    .AddField("HC주식회사", "```" + getprice[0] + "빵\t" + getprice[1] + "주```", false)
-                    .AddField("뮤트테크", "```" + getprice[2] + "빵\t" + getprice[3] + "주```", false)
-                    .AddField("TK전자", "```" + getprice[4] + "빵\t" + getprice[5] + "주```", false)
-                    .AddField("PC가전", "```" + getprice[6]+ "빵\t" + getprice[7] + "주```",false)
-                    .AddField("피엠산업", "```" + getprice[8] + "빵\t" + getprice[9] + "주```", false)
-                    .AddField("비빔밥사", "```" + getprice[10] + "빵\t" + getprice[11] + "주```", false)
+                    .AddField("HC주식회사 가격", "```" + getprice[0] + "빵```", true)
+                    .AddField("HC주식회사 저번 가격", "```" + update[2] + "빵 (현재 대비" + hc + "빵 높음)", true)
+                    .AddField("HC주식회사 남은 주 수", "```" + getprice[1] + "빵```", true)
+                    .AddField("뮤트테크 가격", "```" + getprice[2] + "빵```", true)
+                    .AddField("뮤트테크 저번 가격", "```" + update[3] + "빵 (현재 대비")
+                    .AddField("TK전자", "```" + getprice[4] + "빵\n" + getprice[5] + "주" + "```")
+                    .AddField("PC가전", "```" + getprice[6]+ "빵\n" + getprice[7] + "주" + "```")
+                    .AddField("피엠산업", "```" + getprice[8] + "빵\n" + getprice[9] + "주" + "```")
+                    .AddField("비빔밥사", "```" + getprice[10] + "빵\n" + getprice[11] + "주" + "```")
                     .AddField("다음 업데이트 시각",update[1],false);
                 Embed embed = builder.Build();
                 await message.Channel.SendMessageAsync("",embed:embed).ConfigureAwait(false);

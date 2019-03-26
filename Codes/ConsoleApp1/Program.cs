@@ -26,7 +26,7 @@ namespace ConsoleApp1
                 time = DateTime.Now;
                 hour = (byte)time.Hour;
                 minute = (byte)time.Minute;
-                Thread.Sleep(10000);
+                Thread.Sleep(1000);
             }
             upminute += 5;
             if (upminute >= 60)
@@ -46,9 +46,9 @@ namespace ConsoleApp1
             byte ha = (byte)random.Next(45,58);
             byte hb = (byte)random.Next(1, 101);
             byte hc = (byte)random.Next(1, 41);
-            if (hb <= ha) h += hc;
+            if (hb >= ha) h += hc;
             else h -= hc;
-            if (h < 0) { h = 원래; hc = 0; }
+            if (h <= 0) { h = 원래; hc = 0; }
             har[0] = h.ToString();
             string hf = har[0] + " " + har[1];
             notepad[0] = hf;
@@ -59,9 +59,9 @@ namespace ConsoleApp1
             byte ma = (byte)random.Next(44,57);
             byte mb = (byte)random.Next(1, 101);
             byte mc = (byte)random.Next(1, 33);
-            if (mb <= ma) m += mc;
+            if (mb >= ma) m += mc;
             else m -= mc;
-            if (m < 0) { m = 뮤; mc = 0; }
+            if (m <= 0) { m = 뮤; mc = 0; }
             mar[0] = m.ToString();
             string mf = mar[0] + " " + mar[1];
             notepad[1] = mf;
@@ -72,9 +72,9 @@ namespace ConsoleApp1
             byte ta = (byte)random.Next(35,46);
             byte tb = (byte)random.Next(1, 101);
             byte tc = (byte)random.Next(1, 101);
-            if (tb <= ta) t += tc;
+            if (tb >= ta) t += tc;
             else t -= tc;
-            if (t < 0) { t = TK; tc = 0; }
+            if (t <= 0) { t = TK; tc = 0; }
             tar[0] = t.ToString();
             string tf = tar[0] + " " + tar[1];
             notepad[2] = tf;
@@ -85,9 +85,9 @@ namespace ConsoleApp1
             byte pa = (byte)random.Next(43,56);
             byte pb = (byte)random.Next(1, 101);
             byte pc = (byte)random.Next(1, 26);
-            if (pb <= pa) p += pc;
+            if (pb >= pa) p += pc;
             else p -= pc;
-            if (p < 0) { p = PC; pc = 0; }
+            if (p <= 0) { p = PC; pc = 0; }
             par[0] = p.ToString();
             string pf = par[0] + " " + par[1];
             notepad[3] = pf;
@@ -98,9 +98,9 @@ namespace ConsoleApp1
             byte pma = (byte)random.Next(42,54);
             byte pmb = (byte)random.Next(1, 101);
             byte pmc = (byte)random.Next(1, 21);
-            if (pmb <= pma) pm += pmc;
+            if (pmb >= pma) pm += pmc;
             else pm -= pmc;
-            if (pm < 0) { pm = PM; pmc = 0; }
+            if (pm <= 0) { pm = PM; pmc = 0; }
             pmar[0] = pm.ToString();
             string pmf = pmar[0] + " " + pmar[1];
             notepad[4] = pmf;
@@ -111,16 +111,20 @@ namespace ConsoleApp1
             byte ba = (byte)random.Next(41,53);
             byte bb = (byte)random.Next(1, 101);
             byte bc = (byte)random.Next(1, 13);
-            if (bb <= ba) bm += bc;
+            if (bb >= ba) bm += bc;
             else bm -= bc;
-            if (bm < 0) { bm = BM; bc = 0; }
+            if (bm <= 0) { bm = BM; bc = 0; }
             bar[0] = bm.ToString();
             string bmf = bar[0] + " " + bar[1];
             notepad[5] = bmf;
 
+            string[] writetime = new string[8]
+            {
+                hour+"시 " + minute+"분", uphour+"시 " + upminute + "분", 원래.ToString(), 뮤.ToString(), TK.ToString(), PC.ToString(), PM.ToString(), BM.ToString()
+            };
             Console.WriteLine("\n\n" + time.Day + "일 " + hour + "시 " + minute + "분 " + time.Second + "초 업데이트 완료");
             Console.WriteLine("\n다음 업데이트 시각: " + uphour + "시 " + upminute + "분");
-            File.WriteAllText("time.txt",hour+"시 " + minute+"분\n" + uphour+"시 " + upminute+"분");
+            File.WriteAllLines("time.txt",writetime);
             File.WriteAllLines("price.txt", notepad);
 
             goto a;
