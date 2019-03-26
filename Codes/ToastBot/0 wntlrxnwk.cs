@@ -25,8 +25,13 @@ namespace ToastBot
             {
                 string[] getprice = File.ReadAllText("price.txt").Split(' ', '\n');
                 string[] update = File.ReadAllLines("time.txt");
+                string phc, pmu, ptk, ppc, ppm, pbm = "";
                 int hc = int.Parse(update[2]) - int.Parse(getprice[0]);
+                if (hc > 0) phc = "+" + hc.ToString();
+                else phc = hc.ToString();
                 int mu = int.Parse(update[3]) - int.Parse(getprice[1]);
+                if (mu > 0) pmu = "+" + mu.ToString();
+                else pmu = mu.ToString();
                 int tk = int.Parse(update[4]) - int.Parse(getprice[2]);
                 int pc = int.Parse(update[5]) - int.Parse(getprice[3]);
                 int pm = int.Parse(update[6]) - int.Parse(getprice[4]);
@@ -35,26 +40,24 @@ namespace ToastBot
                     .WithTitle("현재 주식의 가격과 남은 주 수")
                     .WithColor(red,green,blue)
                     .AddField("마지막 업데이트 시각",update[0],false)
-                    .AddField("HC주식회사 가격", "```" + getprice[0] + "빵```", true)
-                    .AddField("HC주식회사 저번 가격", "```" + update[2] + "빵 (현재 대비" + hc + "빵 높음)```", true)
+                    .AddField("HC주식회사 가격", "```" + getprice[0] + "```", true)
+                    .AddField("HC주식회사 저번 가격", "```" + update[2] + " (" + hc + "빵 높음)```", true)
                     .AddField("HC주식회사 남은 주 수", "```" + getprice[1] + "주```", true)
-
                     .AddField("뮤트테크 가격", "```" + getprice[2] + "빵```", true)
                     .AddField("뮤트테크 저번 가격", "```" + update[3] + "빵 (현재 대비" + mu + "빵 높음)```", true)
-                    .AddField("뮤트테크 남은 주 수", "```" + getprice[3] + "주", true)
-
+                    .AddField("뮤트테크 남은 주 수", "```" + getprice[3] + "주```", true)
                     .AddField("TK전자 가격", "```" + getprice[4] + "빵```", true)
                     .AddField("TK전자 저번 가격", "```" + update[4] + "빵 (현재 대비" + tk + "빵 높음)```", true)
-                    .AddField("TK전자 남은 주 수", "```" + getprice[5] + "주", true)
-
+                    .AddField("TK전자 남은 주 수", "```" + getprice[5] + "주```", true)
                     .AddField("PC가전 가격", "```" + getprice[6] + "빵```", true)
                     .AddField("PC가전 저번 가격", "```" + update[5] + "빵 (현재 대비" + pc + "빵 높음)```", true)
-                    .AddField("PC가전 남은 주 수", "```" + getprice[7] + "주", true)
-
+                    .AddField("PC가전 남은 주 수", "```" + getprice[7] + "주```", true)
                     .AddField("피엠산업 가격", "```" + getprice[8] + "빵```", true)
                     .AddField("피엠산업 저번 가격", "```" + update[6] + "빵 (현재 대비" + pc + "빵 높음)```", true)
-                    .AddField("피엠산업 남은 주 수", "```" + getprice[9] + "주", true)
-                    .AddField("비빔밥사", "```" + getprice[10] + "빵\n" + getprice[11] + "주" + "```")
+                    .AddField("피엠산업 남은 주 수", "```" + getprice[9] + "주```", true)
+                    .AddField("비빔밥사 가격", "```" + getprice[10] + "빵```", true)
+                    .AddField("비빔밥사 저번 가격", "```" + update[7] + "빵 (현재 대비" + pc + "빵 높음)```", true)
+                    .AddField("비빔밥사 남은 주 수", "```" + getprice[11] + "주```", true)
                     .AddField("다음 업데이트 시각",update[1],false);
                 Embed embed = builder.Build();
                 await message.Channel.SendMessageAsync("",embed:embed).ConfigureAwait(false);
