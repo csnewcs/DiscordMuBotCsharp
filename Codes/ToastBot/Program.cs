@@ -42,10 +42,11 @@ namespace 토스트봇
             string playertest = message.Content.ToString();
             string playername = message.Author.Username;
             ulong playerid = message.Author.Id;
+            bool isbot = client.GetUser(playerid).IsBot;
             string[] playertext = playertest.Split('!', ' ');
             Random random = new Random();
             //명령어 인식 & 실행
-            if (true)
+            if (isbot != true)
             {
                 if (playertext[0] == "mu" || playertext[0] == "뮤")
                 {
@@ -58,6 +59,7 @@ namespace 토스트봇
                     else if (playertext[1] == "상위권") { ToastBot.Scoreboard scoreboard = new ToastBot.Scoreboard(); await scoreboard.wjatn(message, client); }
                     else if (playertext[1] == "주식투자") { ToastBot.wntlrxnwk wntlrxnwk = new ToastBot.wntlrxnwk(); await wntlrxnwk.wntlr(message); }
                     else if (playertext[1] == "송금") { ToastBot.remittance remittance = new ToastBot.remittance(); await remittance.remi(message); }
+                    else if (playertext[1] == "초대") { ToastBot.invite invite = new ToastBot.invite(); await invite.inv(message, client); }
                 }
             }
         }
