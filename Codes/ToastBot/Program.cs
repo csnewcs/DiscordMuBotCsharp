@@ -13,11 +13,11 @@ namespace 토스트봇
 {
     class Program
     {
+        DiscordSocketClient client = new DiscordSocketClient();
         public static void Main(string[] args) => new Program().MainAsync().GetAwaiter().GetResult();
         public async Task MainAsync()
         {
             string token = muto();
-            DiscordSocketClient client = new DiscordSocketClient();
             client.Log += Log;
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
@@ -38,8 +38,6 @@ namespace 토스트봇
 
         public async Task MessageReceived(SocketMessage message)
         {
-            DiscordSocketClient client = new DiscordSocketClient();
-            client.Log += Log;
             //사용자가 입력한 말 변수에 입력 (Word entered by users enter in Variables)
             string playertest = message.Content.ToString();
             string playername = message.Author.Username;
@@ -57,7 +55,7 @@ namespace 토스트봇
                     else if (playertext[1] == "명예의전당") { ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
                     else if (playertext[1] == "빵은행") { ToastBot.bank bank = new ToastBot.bank(); await bank.Bank(message); }
                     else if (playertext[1] == "순위") { ToastBot.rank rank = new ToastBot.rank(); await rank.tnsdnl(message); }
-                    else if (playertext[1] == "상위권") { ToastBot.Scoreboard scoreboard = new ToastBot.Scoreboard(); await scoreboard.wjatn(message); }
+                    else if (playertext[1] == "상위권") { ToastBot.Scoreboard scoreboard = new ToastBot.Scoreboard(); await scoreboard.wjatn(message, client); }
                     else if (playertext[1] == "주식투자") { ToastBot.wntlrxnwk wntlrxnwk = new ToastBot.wntlrxnwk(); await wntlrxnwk.wntlr(message); }
                     else if (playertext[1] == "송금") { ToastBot.remittance remittance = new ToastBot.remittance(); await remittance.remi(message); }
                 }

@@ -17,9 +17,8 @@ namespace ToastBot
     {
         int loop = 2;
 
-        public async Task wjatn(SocketMessage message)
+        public async Task wjatn(SocketMessage message, DiscordSocketClient client)
         {
-            DiscordSocketClient client = new DiscordSocketClient();
             string playerid = message.Author.Id.ToString();
             string[] notepad = File.ReadAllLines("Players.txt");
             int a = Array.IndexOf(notepad,playerid);
@@ -49,12 +48,15 @@ namespace ToastBot
             score[4] = chltkd();
             ottff[4] = ulong.Parse(notepad[loop - 1]);
 
-            string[] playername = getnickname(ottff, message);
-            if (playername[0] == null) playername[0] = client.GetUser(ottff[0]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[1] == null) playername[1] = client.GetUser(ottff[1]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[2] == null) playername[2] = client.GetUser(ottff[2]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[3] == null) playername[3] = client.GetUser(ottff[3]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
-            if (playername[4] == null) playername[4] = client.GetUser(ottff[4]).Username + " (이 서버에 존재하지 않는 사람이다뮤)";
+            File.WriteAllText("Players.txt", notuse);
+
+            string[] playername = getnickname(ottff, client);
+
+            if (playername[0] == null) playername[0] = "이 서버에 없는 사람이다뮤 =ㅇ=";
+            if (playername[1] == null) playername[1] = "이 서버에 없는 사람이다뮤 =ㅇ=";
+            if (playername[2] == null) playername[2] = "이 서버에 없는 사람이다뮤 =ㅇ=";
+            if (playername[3] == null) playername[3] = "이 서버에 없는 사람이다뮤 =ㅇ=";
+            if (playername[4] == null) playername[4] = "이 서버에 없는 사람이다뮤 =ㅇ=";
 
             File.WriteAllLines("Players.txt", notepad);
             if (score[0] > -1)
@@ -74,7 +76,6 @@ namespace ToastBot
             else output[4] = "사...사람이 읍서요!";
 
 
-            File.WriteAllText("Players.txt", notuse);
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);
             byte green = (byte)random.Next(0, 256);
@@ -93,24 +94,24 @@ namespace ToastBot
                 embed: embed)
                 .ConfigureAwait(false);
         }
-        public string[] getnickname(ulong[] playerid, SocketMessage msg)
+        public string[] getnickname(ulong[] playerid, DiscordSocketClient client)
         {
-            DiscordSocketClient client = new DiscordSocketClient();
+            var getp1 = client.GetUser(playerid[0]) as SocketUser;
+            var getp2 = client.GetUser(playerid[1]) as SocketUser;
+            var getp3 = client.GetUser(playerid[2]) as SocketUser;
+            var getp4 = client.GetUser(playerid[3]) as SocketUser;
+            var getp5 = client.GetUser(playerid[4]) as SocketUser;
             string[] nickname = new string[5];
-            nickname[0] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[0])?.Nickname;
-            if (nickname[0] == null) nickname[0] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[0])?.Username;
 
-            nickname[1] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[1])?.Nickname;
-            if (nickname[1] == null) nickname[1] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[1])?.Username;
+            nickname[0] = getp1?.Username;
 
-            nickname[2] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[2])?.Nickname;
-            if (nickname[2] == null) nickname[2] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[2])?.Username;
+            nickname[1] = getp2?.Username;
 
-            nickname[3] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[3])?.Nickname;
-            if (nickname[3] == null) nickname[3] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[3])?.Username;
+            nickname[2] = getp3?.Username;
 
-            nickname[4] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[4])?.Nickname;
-            if (nickname[4] == null) nickname[4] = (msg.Channel as SocketTextChannel)?.Guild?.GetUser(playerid[4])?.Username;
+            nickname[3] = getp4?.Username;
+
+            nickname[4] = getp5?.Username;
             return nickname;
         }
         public int chltkd()
