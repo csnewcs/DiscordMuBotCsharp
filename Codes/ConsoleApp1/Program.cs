@@ -69,7 +69,7 @@ namespace ConsoleApp1
             string[] tar = notepad[2].Split(' ');
             int t = int.Parse(tar[0]);
             int TK = t;
-            byte ta = (byte)random.Next(35,46);
+            byte ta = (byte)random.Next(30,41);
             byte tb = (byte)random.Next(1, 101);
             byte tc = (byte)random.Next(1, 101);
             if (tb <= ta) t += tc;
