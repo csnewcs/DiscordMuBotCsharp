@@ -22,11 +22,6 @@ namespace ToastBot
             string playerid = message.Author.Id.ToString();
             string[] notepad = File.ReadAllLines("Players.txt");
             int a = Array.IndexOf(notepad,playerid);
-            if (a < 0)
-            {
-                string all = File.ReadAllText("Players.txt");
-                File.WriteAllText("Players.txt", all + "\n" + playerid + "\n30");
-            }
             notepad = File.ReadAllLines("Players.txt");
             string notuse = File.ReadAllText("Players.txt");
             int[] score = new int[5] {-100, -100, -100, -100, -100 };

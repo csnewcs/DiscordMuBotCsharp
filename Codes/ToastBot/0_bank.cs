@@ -27,31 +27,10 @@ namespace ToastBot
             string[] wntlr = File.ReadAllLines("playerhave.txt");
             int arrav = Array.IndexOf(array, playerid);
             int wntll = Array.IndexOf(wntlr, playerid);
-            if (wntll < 0)
-            {
-                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + "\n" +playerid + "\n0\n0\n0\n0\n0\n0");
-                wntlr = File.ReadAllLines("playerhave.txt");
-                wntll = Array.IndexOf(wntlr, playerid);
-            }
             string turn = "";
-            if (arrav >= 0)
-            {
-                arrav++;
-                turn = array[arrav];
-            }
-            else if (arrav < 0)
-            {
-                string a = File.ReadAllText("Players.txt");
-                string write = a + "\n" + playerid + "\n" + "30";
-                File.WriteAllText("Players.txt",write);
-                turn = "30";
-                arrav = array.Length;
-            }
-            if (wntll < 0)
-            {
-                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + playerid + "\n0\n0\n0\n0\n0\n0");
-                wntlr = File.ReadAllLines("playerhave.txt");
-            }
+            arrav++;
+            turn = array[arrav];
+
             wntll = Array.IndexOf(wntlr, playerid);
             var builder = new EmbedBuilder()
             .AddField(nickname + "님이 가지고 있는 빵의 수는...", turn + "개다뮤~")

@@ -11,7 +11,7 @@ namespace ToastBot
 {
     class remittance
     {
-        public async Task remi(SocketMessage message)
+        public async Task remi(SocketMessage message, DiscordSocketClient client)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0,256);
@@ -21,16 +21,10 @@ namespace ToastBot
             string[] tell = message.Content.Split(' ', '!');
             int fromindex = Array.IndexOf(notepad, message.Author.Id.ToString());
             int toindex = Array.IndexOf(notepad, tell[2]);
-            if (fromindex < 0)
-            {
-                File.WriteAllText("Players.txt", File.ReadAllText("Players.txt") + "\n" + message.Author.Id.ToString() + "\n30");
-                notepad = File.ReadAllLines("Players.txt");
-                fromindex = Array.IndexOf(notepad,message.Author.Id.ToString());
-            }
             if (toindex < 0)
             {
                 var builder = new EmbedBuilder()
-                              .AddField("사람 없음", "현재 그 사람은 여기에 가입이 되어있지 않다뮤!\n그 사람이 토스트의 돈(빵)관련 명령어를 사용하면 된다뮤우~")
+                              .AddField("사람 없음", "현재 그 사람은 여기에 가입이 되어있지 않다뮤!\n그 사람이 토스트의 명령어를 사용하면 된다뮤우~")
                               .WithColor(new Color(red, green, blue));
                 var embed = builder.Build();
                 await message.Channel.SendMessageAsync(

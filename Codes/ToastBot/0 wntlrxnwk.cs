@@ -71,24 +71,13 @@ namespace ToastBot
                 await message.Channel.SendMessageAsync("",embed:embed).ConfigureAwait(false);
             }
 
-            string[] note = File.ReadAllLines("playerhave.txt");
-            string[] notepadt = File.ReadAllLines("Players.txt");
-            string playerid = message.Author.Id.ToString();
-            int where = Array.IndexOf(note, playerid);
-            int moneywh = Array.IndexOf(notepadt, playerid);
-            if (where < 0)
-            {
-                File.WriteAllText("playerhave.txt", File.ReadAllText("playerhave.txt") + "\n" +playerid + "\n0\n0\n0\n0\n0\n0");
-                note = File.ReadAllLines("playerhave.txt");
-            }
-            if (moneywh < 0)
-            {
-                string notepad = File.ReadAllText("Players.txt");
-                File.WriteAllText("Players.txt", notepad + "\n" + playerid + "\n30");
-            }
-            int player = Array.IndexOf(notepadt, playerid);
+            string[] note = File.ReadAllLines("moneywhhave.txt");
+            string[] notepadt = File.ReadAllLines("moneywhs.txt");
+            string moneywhid = message.Author.Id.ToString();
+            int where = Array.IndexOf(note, moneywhid);
+            int moneywh = Array.IndexOf(notepadt, moneywhid);
             int number = int.Parse(usermessage[4]);
-            int playermoney = int.Parse(notepadt[player + 1]);
+            int moneywhmoney = int.Parse(notepadt[moneywh + 1]);
             string price = File.ReadAllText("price.txt");
             string[] pricea = price.Split(' ', '\n');
 
@@ -98,10 +87,10 @@ namespace ToastBot
                 if (usermessage[3] == "HC주식회사")
                 {
                     int hprice = int.Parse(pricea[0]) * number;
-                    if (playermoney < hprice)
+                    if (moneywhmoney < hprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + hprice + "개의 빵을 투자하려 했지만... 토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + hprice + "개의 빵을 투자하려 했지만... 토스트 창고에는 " + moneywhmoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -130,15 +119,15 @@ namespace ToastBot
                             string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
                             File.WriteAllText("price.txt", writehave);
 
-                            where = Array.IndexOf(note, playerid);
+                            where = Array.IndexOf(note, moneywhid);
                             int write = int.Parse(note[where + 1]) + number;
                             note[where + 1] = write.ToString();
-                            File.WriteAllLines("playerhave.txt", note);
+                            File.WriteAllLines("moneywhhave.txt", note);
 
                             int pay = number * int.Parse(pricea[0]);
-                            int money = int.Parse(notepadt[player + 1]) - pay;
-                            notepadt[player + 1] = money.ToString();
-                            File.WriteAllLines("Players.txt", notepadt);
+                            int money = int.Parse(notepadt[moneywh + 1]) - pay;
+                            notepadt[moneywh + 1] = money.ToString();
+                            File.WriteAllLines("moneywhs.txt", notepadt);
 
                             var builder = new EmbedBuilder()
                             .AddField("완료", "HC주식회사 " + number + "주 구입이 정상적으로 완료되었다뮤!")
@@ -154,10 +143,10 @@ namespace ToastBot
                 else if (usermessage[3] == "뮤트테크")
                 {
                     int mprice = int.Parse(pricea[2]) * number;
-                    if (playermoney < mprice)
+                    if (moneywhmoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만... 토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만... 토스트 창고에는 " + moneywhmoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -186,15 +175,15 @@ namespace ToastBot
                             string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
                             File.WriteAllText("price.txt", writehave);
 
-                            where = Array.IndexOf(note, playerid);
+                            where = Array.IndexOf(note, moneywhid);
                             int write = int.Parse(note[where + 2]) + number;
                             note[where + 2] = write.ToString();
-                            File.WriteAllLines("playerhave.txt", note);
+                            File.WriteAllLines("moneywhhave.txt", note);
 
                             int pay = number * int.Parse(pricea[2]);
-                            int money = int.Parse(notepadt[player + 1]) - pay;
-                            notepadt[player + 1] = money.ToString();
-                            File.WriteAllLines("Players.txt", notepadt);
+                            int money = int.Parse(notepadt[moneywh + 1]) - pay;
+                            notepadt[moneywh + 1] = money.ToString();
+                            File.WriteAllLines("moneywhs.txt", notepadt);
 
                             var builder = new EmbedBuilder()
                             .AddField("완료", "뮤트테크 " + number + "주 구입이 정상적으로 완료되었다뮤!")
@@ -211,10 +200,10 @@ namespace ToastBot
                 else if (usermessage[3] == "TK전자")
                 {
                     int mprice = int.Parse(pricea[4]) * number;
-                    if (playermoney < mprice)
+                    if (moneywhmoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + moneywhmoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -243,15 +232,15 @@ namespace ToastBot
                             string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
                             File.WriteAllText("price.txt", writehave);
 
-                            where = Array.IndexOf(note, playerid);
+                            where = Array.IndexOf(note, moneywhid);
                             int write = int.Parse(note[where + 3]) + number;
                             note[where + 3] = write.ToString();
-                            File.WriteAllLines("playerhave.txt", note);
+                            File.WriteAllLines("moneywhhave.txt", note);
 
                             int pay = number * int.Parse(pricea[4]);
-                            int money = int.Parse(notepadt[player + 1]) - pay;
-                            notepadt[player + 1] = money.ToString();
-                            File.WriteAllLines("Players.txt", notepadt);
+                            int money = int.Parse(notepadt[moneywh + 1]) - pay;
+                            notepadt[moneywh + 1] = money.ToString();
+                            File.WriteAllLines("moneywhs.txt", notepadt);
 
                             var builder = new EmbedBuilder()
                             .AddField("완료", "TK전자 " + number + "주 구입이 정상적으로 완료되었다뮤!")
@@ -268,10 +257,10 @@ namespace ToastBot
                 else if (usermessage[3] == "PC가전")
                 {
                     int mprice = int.Parse(pricea[6]) * number;
-                    if (playermoney < mprice)
+                    if (moneywhmoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + moneywhmoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -300,15 +289,15 @@ namespace ToastBot
                             string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
                             File.WriteAllText("price.txt", writehave);
 
-                            where = Array.IndexOf(note, playerid);
+                            where = Array.IndexOf(note, moneywhid);
                             int write = int.Parse(note[where + 4]) + number;
                             note[where + 4] = write.ToString();
-                            File.WriteAllLines("playerhave.txt", note);
+                            File.WriteAllLines("moneywhhave.txt", note);
 
                             int pay = number * int.Parse(pricea[6]);
-                            int money = int.Parse(notepadt[player + 1]) - pay;
-                            notepadt[player + 1] = money.ToString();
-                            File.WriteAllLines("Players.txt", notepadt);
+                            int money = int.Parse(notepadt[moneywh + 1]) - pay;
+                            notepadt[moneywh + 1] = money.ToString();
+                            File.WriteAllLines("moneywhs.txt", notepadt);
 
                             var builder = new EmbedBuilder()
                             .AddField("완료", "PC가전 " + number + "주 구입이 정상적으로 완료되었다뮤!")
@@ -326,10 +315,10 @@ namespace ToastBot
                 else if (usermessage[3] == "피엠산업")
                 {
                     int mprice = int.Parse(pricea[8]) * number;
-                    if (playermoney < mprice)
+                    if (moneywhmoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + moneywhmoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -358,15 +347,15 @@ namespace ToastBot
                             string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
                             File.WriteAllText("price.txt", writehave);
 
-                            where = Array.IndexOf(note, playerid);
+                            where = Array.IndexOf(note, moneywhid);
                             int write = int.Parse(note[where + 5]) + number;
                             note[where + 5] = write.ToString();
-                            File.WriteAllLines("playerhave.txt", note);
+                            File.WriteAllLines("moneywhhave.txt", note);
 
                             int pay = number * int.Parse(pricea[8]);
-                            int money = int.Parse(notepadt[player + 1]) - pay;
-                            notepadt[player + 1] = money.ToString();
-                            File.WriteAllLines("Players.txt", notepadt);
+                            int money = int.Parse(notepadt[moneywh + 1]) - pay;
+                            notepadt[moneywh + 1] = money.ToString();
+                            File.WriteAllLines("moneywhs.txt", notepadt);
 
                             var builder = new EmbedBuilder()
                             .AddField("완료", "피엠산업 " + number + "주 구입이 정상적으로 완료되었다뮤!")
@@ -384,10 +373,10 @@ namespace ToastBot
                 else if (usermessage[3] == "비빔밥사")
                 {
                     int mprice = int.Parse(pricea[10]) * number;
-                    if (playermoney < mprice)
+                    if (moneywhmoney < mprice)
                     {
                         var builder = new EmbedBuilder()
-                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + playermoney + "개의 빵이 있다뮤우~!")
+                        .AddField("빵 부족", "뮤 ? 지금 뭐하냐뮤..? 그만큼에 빵은 없다뮤!\n" + mprice + "개의 빵을 투자하려 했지만...토스트 창고에는 " + moneywhmoney + "개의 빵이 있다뮤우~!")
                         .WithColor(new Color(red, green, blue));
                         var embed = builder.Build();
                         await message.Channel.SendMessageAsync(
@@ -416,15 +405,15 @@ namespace ToastBot
                             string writehave = pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11];
                             File.WriteAllText("price.txt", writehave);
 
-                            where = Array.IndexOf(note, playerid);
+                            where = Array.IndexOf(note, moneywhid);
                             int write = int.Parse(note[where + 6]) + number;
                             note[where + 6] = write.ToString();
-                            File.WriteAllLines("playerhave.txt", note);
+                            File.WriteAllLines("moneywhhave.txt", note);
 
                             int pay = number * int.Parse(pricea[10]);
-                            int money = int.Parse(notepadt[player + 1]) - pay;
-                            notepadt[player + 1] = money.ToString();
-                            File.WriteAllLines("Players.txt", notepadt);
+                            int money = int.Parse(notepadt[moneywh + 1]) - pay;
+                            notepadt[moneywh + 1] = money.ToString();
+                            File.WriteAllLines("moneywhs.txt", notepadt);
 
                             var builder = new EmbedBuilder()
                             .AddField("완료", "비빔밥사 " + number + "주 구입이 정상적으로 완료되었다뮤!")
@@ -464,12 +453,12 @@ namespace ToastBot
                         note[he + 1] = result.ToString();
                         int money = int.Parse(pricea[0]) * sell;
                         int wntlr = int.Parse(pricea[1]) + sell;
-                        int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 1] = resultmoney.ToString();
+                        int resultmoney = int.Parse(notepadt[moneywh + 1]) + money;
+                        notepadt[moneywh + 1] = resultmoney.ToString();
                         pricea[1] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
-                        File.WriteAllLines("playerhave.txt", note);
-                        File.WriteAllLines("Players.txt", notepadt);
+                        File.WriteAllLines("moneywhhave.txt", note);
+                        File.WriteAllLines("moneywhs.txt", notepadt);
                         var builder = new EmbedBuilder()
                             .AddField("완료", "HC주식회사 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));
@@ -503,12 +492,12 @@ namespace ToastBot
                         note[he + 2] = result.ToString();
                         int money = int.Parse(pricea[2]) * sell;
                         int wntlr = int.Parse(pricea[3]) + sell;
-                        int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 1] = resultmoney.ToString();
+                        int resultmoney = int.Parse(notepadt[moneywh + 1]) + money;
+                        notepadt[moneywh + 1] = resultmoney.ToString();
                         pricea[3] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
-                        File.WriteAllLines("playerhave.txt", note);
-                        File.WriteAllLines("Players.txt", notepadt);
+                        File.WriteAllLines("moneywhhave.txt", note);
+                        File.WriteAllLines("moneywhs.txt", notepadt);
                         var builder = new EmbedBuilder()
                             .AddField("완료", "뮤트테크 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));
@@ -542,12 +531,12 @@ namespace ToastBot
                         note[he + 3] = result.ToString();
                         int money = int.Parse(pricea[4]) * sell;
                         int wntlr = int.Parse(pricea[5]) + sell;
-                        int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 1] = resultmoney.ToString();
+                        int resultmoney = int.Parse(notepadt[moneywh + 1]) + money;
+                        notepadt[moneywh + 1] = resultmoney.ToString();
                         pricea[5] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
-                        File.WriteAllLines("playerhave.txt", note);
-                        File.WriteAllLines("Players.txt", notepadt);
+                        File.WriteAllLines("moneywhhave.txt", note);
+                        File.WriteAllLines("moneywhs.txt", notepadt);
                         var builder = new EmbedBuilder()
                             .AddField("완료", "TK전자 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));
@@ -581,12 +570,12 @@ namespace ToastBot
                         note[he + 4] = result.ToString();
                         int money = int.Parse(pricea[6]) * sell;
                         int wntlr = int.Parse(pricea[7]) + sell;
-                        int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 1] = resultmoney.ToString();
+                        int resultmoney = int.Parse(notepadt[moneywh + 1]) + money;
+                        notepadt[moneywh + 1] = resultmoney.ToString();
                         pricea[7] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
-                        File.WriteAllLines("playerhave.txt", note);
-                        File.WriteAllLines("Players.txt", notepadt);
+                        File.WriteAllLines("moneywhhave.txt", note);
+                        File.WriteAllLines("moneywhs.txt", notepadt);
                         var builder = new EmbedBuilder()
                             .AddField("완료", "PC가전 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));
@@ -620,12 +609,12 @@ namespace ToastBot
                         note[he + 5] = result.ToString();
                         int money = int.Parse(pricea[8]) * sell;
                         int wntlr = int.Parse(pricea[9]) + sell;
-                        int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 1] = resultmoney.ToString();
+                        int resultmoney = int.Parse(notepadt[moneywh + 1]) + money;
+                        notepadt[moneywh + 1] = resultmoney.ToString();
                         pricea[9] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
-                        File.WriteAllLines("playerhave.txt", note);
-                        File.WriteAllLines("Players.txt", notepadt);
+                        File.WriteAllLines("moneywhhave.txt", note);
+                        File.WriteAllLines("moneywhs.txt", notepadt);
                         var builder = new EmbedBuilder()
                             .AddField("완료", "피엠산업 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));
@@ -659,12 +648,12 @@ namespace ToastBot
                         note[he + 6] = result.ToString();
                         int money = int.Parse(pricea[10]) * sell;
                         int wntlr = int.Parse(pricea[11]) + sell;
-                        int resultmoney = int.Parse(notepadt[player + 1]) + money;
-                        notepadt[player + 1] = resultmoney.ToString();
+                        int resultmoney = int.Parse(notepadt[moneywh + 1]) + money;
+                        notepadt[moneywh + 1] = resultmoney.ToString();
                         pricea[11] = wntlr.ToString();
                         File.WriteAllText("price.txt", pricea[0] + " " + pricea[1] + "\n" + pricea[2] + " " + pricea[3] + "\n" + pricea[4] + " " + pricea[5] + "\n" + pricea[6] + " " + pricea[7] + "\n" + pricea[8] + " " + pricea[9] + "\n" + pricea[10] + " " + pricea[11]);
-                        File.WriteAllLines("playerhave.txt", note);
-                        File.WriteAllLines("Players.txt", notepadt);
+                        File.WriteAllLines("moneywhhave.txt", note);
+                        File.WriteAllLines("moneywhs.txt", notepadt);
                         var builder = new EmbedBuilder()
                             .AddField("완료", "비빔밥사 " + sell + "주 판매가 정상적으로 완료되었다뮤!")
                             .WithColor(new Color(red, green, blue));

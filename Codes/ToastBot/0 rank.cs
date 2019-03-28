@@ -24,15 +24,7 @@ namespace ToastBot
             string playername = message.Author.Username;
             string playerid = message.Author.Id.ToString();
             int he = Array.IndexOf(money, playerid);
-
-            if (he < 0)
-            {
-                biggest = 30;
-                string notepad = File.ReadAllText("Players.txt");
-                File.WriteAllText("Players.txt", notepad + "\n" + playerid + "\n30");
-            }
-
-            else biggest = int.Parse(money[he + 1]);
+            biggest = int.Parse(money[he + 1]);
             int rank = 1;
             int playermoney = biggest;
             while (arr <= money.Length-1)
