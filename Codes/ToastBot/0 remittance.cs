@@ -17,10 +17,30 @@ namespace ToastBot
             byte red = (byte)random.Next(0,256);
             byte green = (byte)random.Next(0,256);
             byte blue = (byte)random.Next(0, 256);
-            string[] notepad = File.ReadAllLines("Players.txt");
             string[] tell = message.Content.Split(' ', '!');
+            var to = client.GetUser(509573176825741312);
+            ulong toid = 0;
+            try
+            {
+                to = client.GetUser(message.MentionedUsers.First().Id) as SocketUser;
+                toid = to.Id;
+            }
+            catch
+            {
+                try
+                {
+                  to = client.GetUser(ulong.Parse(tell[2])) as SocketUser;
+                  toid = to.Id;
+                }
+                catch
+                {
+                    await message.Channel.SendMessageAsync("뮤...? 지금 누구에게 보내려 한거냐뮤? 그런 사람은 없다뮤!");
+                    goto end;
+                }
+            }
+            string[] notepad = File.ReadAllLines("Players.txt");
             int fromindex = Array.IndexOf(notepad, message.Author.Id.ToString());
-            int toindex = Array.IndexOf(notepad, tell[2]);
+            int toindex = Array.IndexOf(notepad, toid.ToString());
             if (toindex < 0)
             {
                 var builder = new EmbedBuilder()
@@ -63,6 +83,7 @@ namespace ToastBot
                     .ConfigureAwait(false);
                 await message.Channel.SendMessageAsync("");
             }
+        end:;
         }
     }
 }

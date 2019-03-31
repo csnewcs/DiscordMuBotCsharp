@@ -64,7 +64,7 @@ namespace 토스트봇
                     if (arrav < 0)
                     {
                         string a = File.ReadAllText("Players.txt");
-                        string write = a + "\n" + playerid + "\n" + "30";
+                        string write = a + "\n" + playerid + "\n" + "30\n";
                         File.WriteAllText("Players.txt", write);
                     }
 

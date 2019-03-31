@@ -43,7 +43,7 @@ namespace ToastBot
                 else ppm = pm.ToString();
                 int bm = int.Parse(update[7]) - int.Parse(getprice[10]);
                 if (bm >= 0) pbm = "+" + bm.ToString();
-                else pbm = hc.ToString();
+                else pbm = bm.ToString();
                 EmbedBuilder builder = new EmbedBuilder()
                     .WithTitle("현재 주식의 가격과 남은 주 수")
                     .WithColor(red,green,blue)
