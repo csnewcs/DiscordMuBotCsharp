@@ -5,6 +5,7 @@
 이 봇은 일반적인 서버 관리보다 오락쪽으로 치우쳐 있습니다. (이미 Node버전이 있기 때문에)<br />
 만약에 문의할 사항이 있으시다면 Discord MuBot Supports에서 해 주시면 감사하겠습니다.<br />
 만약 Node.js버전을 원하신다면 https://github.com/PMHStudio/DiscordMuBot 에서 확인하시면 됩니다.<br />
+Codes안에 폴더 이름인 ToastBot 이 봇을 만들 때 이름입니다 <br >
 
 사용법 <br />
 1. 파일을 내려받는다 <br />
