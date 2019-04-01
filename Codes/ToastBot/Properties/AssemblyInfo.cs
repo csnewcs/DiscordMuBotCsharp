@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Discord MuBot Csharp")]
-[assembly: AssemblyCopyright("Copyright © 2018 PMH Studio / CS MIT Licenced")]
+[assembly: AssemblyCopyright("Copyright © 2018~2019 PMH Studio / CS MIT Licenced")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // 모든 값을 지정하거나 아래와 같이 '*'를 사용하여 빌드 번호 및 수정 번호가 자동으로
 // 지정되도록 할 수 있습니다.
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.7.6")]
-[assembly: AssemblyFileVersion("1.2.5")]
+[assembly: AssemblyVersion("0.8.4")]
+[assembly: AssemblyFileVersion("1.5.0")]
