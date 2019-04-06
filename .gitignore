@@ -1,4 +1,5 @@
-*.txt
+Codes/ToastBot/bin/Debug/*.txt
+Codes/ToastBot/bin/Debug/*.json
 *.suo
 Codes/.vs/ToastBot/v15/.suo
 Codes/.vs/ToastBot/v15/Server/sqlite3/storage.ide-wal
