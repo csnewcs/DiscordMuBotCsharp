@@ -234,6 +234,7 @@
     <Compile Include="0 Scoreboard.cs" />
     <Compile Include="0_bank.cs" />
     <Compile Include="0 invite.cs" />
+    <Compile Include="blacklist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="0 wntlrxnwk.cs" />
