@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Discord.WebSocket;
+using Discord;
 using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -34,10 +35,40 @@ namespace ToastBot
             else turn = true;
             return turn;
         }
-        public Task writeblack(string playerid, SocketMessage message, DiscordSocketClient client)
+        public async Task writeblack(string playerid, SocketMessage message, DiscordSocketClient client)
         {
-            Task.Delay(1);
-            return Task.CompletedTask;
+            Random random = new Random();
+            byte red = (byte)random.Next(0,256);
+            byte green = (byte)random.Next(0, 256);
+            byte blue = (byte)random.Next(0, 256);
+            string author = message.Author.Id.ToString();
+            string json = File.ReadAllText("user.json");
+            bool isowner = false;
+            JObject jObject = JObject.Parse(json);
+            isowner = (bool)jObject[playerid]["owner"];
+            if (isowner)
+            {
+                string to = message.MentionedUsers.First().Id.ToString();
+                var getuser = client.GetUser(ulong.Parse(to));
+                jObject[to]["black"] = true;
+                string write = jObject.ToString();
+                File.WriteAllText("user.json", write);
+                var builder = new EmbedBuilder()
+                    .WithColor(red, green, blue)
+                    .AddField("작업 결과",$"작업 완료!, {message.Author.Mention}님으로 인해 {getuser.Mention}님이 블랙리스트에 추가되었습니다.");
+                var embed = builder.Build();
+                await message.Channel.SendMessageAsync(
+                    "",embed: embed).ConfigureAwait(false);
+            }
+            else
+            {
+                var builder = new EmbedBuilder()
+                    .WithColor(red, green, blue)
+                    .AddField("작업 결과", message.Author.Mention + ", 어허 어디서 관리자만 사용 가능한 명령어를!");
+                var embed = builder.Build();
+                await message.Channel.SendMessageAsync(
+                    "", embed: embed).ConfigureAwait(false);
+            }
         }
     }
 }
