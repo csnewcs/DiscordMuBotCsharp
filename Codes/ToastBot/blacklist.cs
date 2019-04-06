@@ -11,7 +11,7 @@ using Newtonsoft.Json.Linq;
 
 namespace ToastBot
 {
-    class blacklist
+    public class blacklist
     {
         public bool black(string playerid,SocketMessage message)
         {
@@ -34,7 +34,7 @@ namespace ToastBot
             else turn = true;
             return turn;
         }
-        public Task writeblack(string playerid)
+        public Task writeblack(string playerid, SocketMessage message, DiscordSocketClient client)
         {
             Task.Delay(1);
             return Task.CompletedTask;

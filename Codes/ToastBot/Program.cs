@@ -71,16 +71,17 @@ namespace 토스트봇
                             File.WriteAllText("Players.txt", write);
                         }
 
-                        if (playertext[1] == "청소") { ToastBot.Clean clean = new ToastBot.Clean(); await clean.clean(message); }
-                        else if (playertext[1] == "토스트") { ToastBot.question question = new ToastBot.question(); await question.anfdmavy(message); }
-                        else if (playertext[1] == "빵굽기") { ToastBot.roastbread roastbread = new ToastBot.roastbread(); await roastbread.Roast(message); }
-                        else if (playertext[1] == "명예의전당") { ToastBot.invest invest = new ToastBot.invest(); await invest.xnwk(message); }
-                        else if (playertext[1] == "빵은행") { ToastBot.bank bank = new ToastBot.bank(); await bank.Bank(message); }
-                        else if (playertext[1] == "순위") { ToastBot.rank rank = new ToastBot.rank(); await rank.tnsdnl(message); }
-                        else if (playertext[1] == "상위권") { ToastBot.Scoreboard scoreboard = new ToastBot.Scoreboard(); await scoreboard.wjatn(message, client); }
-                        else if (playertext[1] == "주식투자") { ToastBot.wntlrxnwk wntlrxnwk = new ToastBot.wntlrxnwk(); await wntlrxnwk.wntlr(message); }
-                        else if (playertext[1] == "송금") { ToastBot.remittance remittance = new ToastBot.remittance(); await remittance.remi(message, client); }
-                        else if (playertext[1] == "초대") { ToastBot.invite invite = new ToastBot.invite(); await invite.inv(message, client); }
+                        if (playertext[1] == "청소") { ToastBot.Clean clean = new ToastBot.Clean(); clean.clean(message); }
+                        else if (playertext[1] == "토스트") { ToastBot.question question = new ToastBot.question(); question.anfdmavy(message); }
+                        else if (playertext[1] == "빵굽기") { ToastBot.roastbread roastbread = new ToastBot.roastbread(); roastbread.Roast(message); }
+                        else if (playertext[1] == "명예의전당") { ToastBot.invest invest = new ToastBot.invest(); invest.xnwk(message); }
+                        else if (playertext[1] == "빵은행") { ToastBot.bank bank = new ToastBot.bank(); bank.Bank(message); }
+                        else if (playertext[1] == "순위") { ToastBot.rank rank = new ToastBot.rank(); rank.tnsdnl(message); }
+                        else if (playertext[1] == "상위권") { ToastBot.Scoreboard scoreboard = new ToastBot.Scoreboard(); scoreboard.wjatn(message, client); }
+                        else if (playertext[1] == "주식투자") { ToastBot.wntlrxnwk wntlrxnwk = new ToastBot.wntlrxnwk(); wntlrxnwk.wntlr(message); }
+                        else if (playertext[1] == "송금") { ToastBot.remittance remittance = new ToastBot.remittance(); remittance.remi(message, client); }
+                        else if (playertext[1] == "초대") { ToastBot.invite invite = new ToastBot.invite(); invite.inv(message, client); }
+                        else if (playertext[1] == "블랙") { blacklist.writeblack(playerids,message,client); }
                     }
                 }
             }
