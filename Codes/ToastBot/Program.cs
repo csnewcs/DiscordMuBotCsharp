@@ -82,6 +82,7 @@ namespace 토스트봇
                         else if (playertext[1] == "송금") { ToastBot.remittance remittance = new ToastBot.remittance(); remittance.remi(message, client); }
                         else if (playertext[1] == "초대") { ToastBot.invite invite = new ToastBot.invite(); invite.inv(message, client); }
                         else if (playertext[1] == "블랙") { blacklist.writeblack(playerids,message,client); }
+                        else if (playertext[1] == "화이트") { blacklist.white(message, client); }
                     }
                 }
             }
