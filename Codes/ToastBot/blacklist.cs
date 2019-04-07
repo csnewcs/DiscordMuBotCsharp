@@ -50,15 +50,37 @@ namespace ToastBot
             {
                 string to = message.MentionedUsers.First().Id.ToString();
                 var getuser = client.GetUser(ulong.Parse(to));
-                jObject[to]["black"] = true;
-                string write = jObject.ToString();
-                File.WriteAllText("user.json", write);
-                var builder = new EmbedBuilder()
+                if (to == message.Author.Id.ToString())
+                {
+                    var builder = new EmbedBuilder()
                     .WithColor(red, green, blue)
-                    .AddField("작업 결과",$"작업 완료!, {message.Author.Mention}님으로 인해 {getuser.Mention}님이 블랙리스트에 추가되었습니다.");
-                var embed = builder.Build();
-                await message.Channel.SendMessageAsync(
-                    "",embed: embed).ConfigureAwait(false);
+                    .AddField("작업 결과", $"흠..., {message.Author.Mention}님은 {getuser.Mention}본인 아니냐뮤? 본인을 블랙리스트에 추가할 순 없다뮤!");
+                    var embed = builder.Build();
+                    await message.Channel.SendMessageAsync(
+                        "", embed: embed).ConfigureAwait(false);
+                }
+
+                else if ((bool)jObject[to]["owner"] == true)
+                {
+                    var builder = new EmbedBuilder()
+                    .WithColor(red, green, blue)
+                    .AddField("작업 결과", $"어허!, {message.Author.Mention}! {getuser.Mention}님은 관리자라 블랙리스트에 추가 못한다뮤!.");
+                    var embed = builder.Build();
+                    await message.Channel.SendMessageAsync(
+                        "", embed: embed).ConfigureAwait(false);
+                }
+                else
+                {
+                        jObject[to]["black"] = true;
+                        string write = jObject.ToString();
+                        File.WriteAllText("user.json", write);
+                        var builder = new EmbedBuilder()
+                            .WithColor(red, green, blue)
+                            .AddField("작업 결과", $"작업 완료!, {message.Author.Mention}님으로 인해 {getuser.Mention}님이 블랙리스트에 추가되었습니다뮤!");
+                        var embed = builder.Build();
+                        await message.Channel.SendMessageAsync(
+                            "", embed: embed).ConfigureAwait(false);
+                }
             }
             else
             {
@@ -69,6 +91,10 @@ namespace ToastBot
                 await message.Channel.SendMessageAsync(
                     "", embed: embed).ConfigureAwait(false);
             }
+        }
+        public async Task white(SocketMessage message, DiscordSocketClient client)
+        {
+
         }
     }
 }
