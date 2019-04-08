@@ -21,20 +21,20 @@ namespace 토스트봇
             client.Log += Log;
             await client.LoginAsync(TokenType.Bot, token);
             await client.StartAsync();
-            Process.Start("ConsoleApp1.exe");
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
             client.GuildAvailable += Client_GuildAvailable;
+            Process.Start("ConsoleApp1.exe");
             await Task.Delay(-1); 
         }
 
-        private Task Client_GuildAvailable(SocketGuild arg)
+        public Task Client_GuildAvailable(SocketGuild arg)
         {
             arg.DefaultChannel.SendMessageAsync("");
             return Task.CompletedTask;
         }
 
-        private Task Client_Ready() { return Task.CompletedTask; }
+        public Task Client_Ready() { return Task.CompletedTask; }
 
         public async Task MessageReceived(SocketMessage message)
         {
@@ -83,11 +83,12 @@ namespace 토스트봇
                         else if (playertext[1] == "초대") { ToastBot.invite invite = new ToastBot.invite(); invite.inv(message, client); }
                         else if (playertext[1] == "블랙") { blacklist.writeblack(playerids,message,client); }
                         else if (playertext[1] == "화이트") { blacklist.white(message, client); }
+                        else if (playertext[1] == "재시작") { ToastBot.reboot reboot = new ToastBot.reboot(); reboot.rebooting(client,message); }
                     }
                 }
             }
         }
-        private Task Log(LogMessage msg)
+        public Task Log(LogMessage msg)
         {
             Console.WriteLine(msg.ToString());
             return Task.CompletedTask;
