@@ -46,7 +46,7 @@ namespace ConsoleApp1
             byte ha = (byte)random.Next(45,58);
             byte hb = (byte)random.Next(1, 101);
             byte hc = (byte)random.Next(1, 41);
-            if (hb >= ha) h += hc;
+            if (hb <= ha) h += hc;
             else h -= hc;
             if (h <= 0) { h = 원래; hc = 0; }
             har[0] = h.ToString();
