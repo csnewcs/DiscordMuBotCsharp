@@ -98,11 +98,11 @@ namespace 토스트봇
             string muto = "MuBot Token";
             try
             {
-                muto = Environment.GetEnvironmentVariable("muto");
+                muto = File.ReadAllText("config.txt");
             }
             catch
             {
-                muto = File.ReadAllText("config.txt");
+                muto = Environment.GetEnvironmentVariable("muto");
             }
             return muto;
         }
