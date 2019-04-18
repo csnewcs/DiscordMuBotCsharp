@@ -24,7 +24,7 @@ namespace 토스트봇
             client.MessageReceived += MessageReceived;
             client.Ready += Client_Ready;
             client.GuildAvailable += Client_GuildAvailable;
-            Process.Start("ConsoleApp1.exe");
+            cycle();
             await Task.Delay(-1); 
         }
 
@@ -35,6 +35,12 @@ namespace 토스트봇
         }
 
         public Task Client_Ready() { return Task.CompletedTask; }
+        
+        public async Task cycle()
+        {
+            ToastBot.spin spin = new ToastBot.spin();
+            spin.Cycle();
+        }
 
         public async Task MessageReceived(SocketMessage message)
         {
@@ -98,7 +104,7 @@ namespace 토스트봇
             string muto = "MuBot Token";
             try
             {
-                muto = File.ReadAllText("config.txt");
+                muto = File.ReadAllLines("config.txt")[0];
             }
             catch
             {
