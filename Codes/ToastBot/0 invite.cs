@@ -10,7 +10,7 @@ namespace ToastBot
 {
     class invite
     {
-        public async Task inv(SocketMessage message, DiscordSocketClient client)
+        public async void inv(SocketMessage message, DiscordSocketClient client)
         {
             string botid = client.CurrentUser.Id.ToString();
             string link = @"https://discordapp.com/oauth2/authorize?client_id=" + botid + "&scope=bot";

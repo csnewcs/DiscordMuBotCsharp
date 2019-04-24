@@ -10,7 +10,7 @@ namespace ToastBot
 {
     class spin
     {
-        public Task Cycle()
+        public void Cycle()
         {
             Random random = new Random();
             DateTime time = DateTime.Now;

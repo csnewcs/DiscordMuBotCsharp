@@ -11,7 +11,7 @@ namespace ToastBot
 {
     class rank
     {
-        public async Task tnsdnl(SocketMessage message)
+        public async void tnsdnl(SocketMessage message)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);

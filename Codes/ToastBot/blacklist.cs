@@ -35,7 +35,7 @@ namespace ToastBot
             else turn = true;
             return turn;
         }
-        public async Task writeblack(string playerid, SocketMessage message, DiscordSocketClient client)
+        public async void writeblack(string playerid, SocketMessage message, DiscordSocketClient client)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0,256);
@@ -92,7 +92,7 @@ namespace ToastBot
                     "", embed: embed).ConfigureAwait(false);
             }
         }
-        public async Task white(SocketMessage message, DiscordSocketClient client)
+        public async void white(SocketMessage message, DiscordSocketClient client)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);

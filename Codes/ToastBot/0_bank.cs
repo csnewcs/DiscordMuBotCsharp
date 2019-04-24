@@ -11,7 +11,7 @@ namespace ToastBot
 {
     class bank
     {
-        public async Task Bank (SocketMessage message)
+        public async void Bank (SocketMessage message)
         {
             Random random = new Random();
             DiscordSocketClient client = new DiscordSocketClient();

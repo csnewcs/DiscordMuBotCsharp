@@ -11,7 +11,7 @@ namespace ToastBot
 {
     class remittance
     {
-        public async Task remi(SocketMessage message, DiscordSocketClient client)
+        public async void remi(SocketMessage message, DiscordSocketClient client)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0,256);

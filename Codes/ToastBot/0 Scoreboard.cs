@@ -17,7 +17,7 @@ namespace ToastBot
     {
         int loop = 2;
 
-        public async Task wjatn(SocketMessage message, DiscordSocketClient client)
+        public async void wjatn(SocketMessage message, DiscordSocketClient client)
         {
             string playerid = message.Author.Id.ToString();
             string[] notepad = File.ReadAllLines("Players.txt");

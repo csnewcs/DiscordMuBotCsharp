@@ -36,7 +36,7 @@ namespace 토스트봇
 
         public Task Client_Ready() { return Task.CompletedTask; }
         
-        public async Task cycle()
+        public void cycle()
         {
             ToastBot.spin spin = new ToastBot.spin();
             spin.Cycle();
@@ -90,6 +90,7 @@ namespace 토스트봇
                         else if (playertext[1] == "블랙") { blacklist.writeblack(playerids,message,client); }
                         else if (playertext[1] == "화이트") { blacklist.white(message, client); }
                         else if (playertext[1] == "재시작") { ToastBot.reboot reboot = new ToastBot.reboot(); reboot.rebooting(client,message); }
+                        else if (playertext[1] == "환전") { ToastBot.excharge excharge = new ToastBot.excharge(); excharge.breadtomute(message); }
                     }
                 }
             }

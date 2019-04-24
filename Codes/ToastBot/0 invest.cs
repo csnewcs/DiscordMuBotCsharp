@@ -12,7 +12,7 @@ namespace ToastBot
 {
     class invest
     {
-        public async Task xnwk(SocketMessage message)
+        public async void xnwk(SocketMessage message)
         {
             string[] ab = message.Content.Split('!', ' ');
             if (ab[2] == "0") await message.Author.SendFileAsync("koseason.txt");

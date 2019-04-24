@@ -11,7 +11,7 @@ namespace ToastBot
 {
     class roastbread
     {
-        public async Task Roast(SocketMessage message)
+        public async void Roast(SocketMessage message)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);

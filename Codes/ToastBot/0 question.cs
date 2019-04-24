@@ -11,7 +11,7 @@ namespace ToastBot
 {
     class question
     {
-        public async Task anfdmavy(SocketMessage message)
+        public async void anfdmavy(SocketMessage message)
         {
             var builder = new EmbedBuilder()
     .WithTitle("토스트가 사용 가능한 명령어들 (괄호 안은 사용법)")

@@ -12,7 +12,7 @@ namespace ToastBot
 {
     class wntlrxnwk
     {
-        public async Task wntlr(SocketMessage message)
+        public async void wntlr(SocketMessage message)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);
