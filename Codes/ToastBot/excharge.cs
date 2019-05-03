@@ -45,7 +45,11 @@ namespace ToastBot
                 File.WriteAllLines("Players.txt", readcscoin);
                 client.Headers.Add("Content-Type", "application/json");
                 client.UploadString(url, "Put", jscoin.ToString());
-                await message.Channel.SendMessageAsync($"환전 완료 ({int.Parse(playertext[3])}빵을 {price * int.Parse(playertext[3])}MUC로 전환 완료)");
+                var builder = new EmbedBuilder()
+                    .WithColor(red, green, blue)
+                    .AddField("환전 완료", $"{int.Parse(playertext[3])}빵을 {price * int.Parse(playertext[3])}MUC로 전환 완료");
+                Discord.Embed embed = builder.Build();
+                await message.Channel.SendMessageAsync("", embed:embed).ConfigureAwait(false);
             }
         }
 
@@ -67,7 +71,14 @@ namespace ToastBot
             int js = int.Parse(jscoin[playerid]["UsersCoin"].ToString());
             int cs = int.Parse(readcscoin[Array.IndexOf(readcscoin, playerid) + 1]);
             js -= price * int.Parse(playertext[3]);
-            if (js < 0) { await message.Channel.SendMessageAsync($"{message.Author.Username} 지금 뭐하냐뮤? 잔고를 확인해 보라뮤! 당신은 {int.Parse(playertext[3])*price}개의 MUC가 필요 했지만 당신은 {js}만큼의 MUC가 모자라다뮤!"); }
+            if (js < 0)
+            {
+                var builder = new EmbedBuilder()
+          .WithColor(red, green, blue)
+          .AddField("빵부족", $"{message.Author.Username} 지금 뭐하냐뮤? 잔고를 확인해 보라뮤! 당신은 {int.Parse(playertext[3]) * price}개의 MUC가 필요 했지만 당신은 {js}만큼의 MUC가 모자라다뮤!");
+                Discord.Embed embed = builder.Build();
+                await message.Channel.SendMessageAsync("", embed: embed).ConfigureAwait(false);
+            }
             else
             {
                 cs += int.Parse(playertext[3]);
@@ -76,7 +87,11 @@ namespace ToastBot
                 File.WriteAllLines("Players.txt", readcscoin);
                 client.Headers.Add("Content-Type", "application/json");
                 client.UploadString(url, "Put", jscoin.ToString());
-                await message.Channel.SendMessageAsync($"환전 완료 ({price*int.Parse(playertext[3])}MUC를 {int.Parse(playertext[3])}빵으로 전환 완료)");
+                var builder = new EmbedBuilder()
+                    .WithColor(red, green, blue)
+                    .AddField("환전 완료", $"{price * int.Parse(playertext[3])}MUC를 {int.Parse(playertext[3])}빵으로 전환 완료");
+                Discord.Embed embed = builder.Build();
+                await message.Channel.SendMessageAsync("", embed: embed).ConfigureAwait(false);
             }
         }
         public async void price()
