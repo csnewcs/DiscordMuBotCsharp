@@ -94,12 +94,18 @@ namespace ToastBot
                 await message.Channel.SendMessageAsync("", embed: embed).ConfigureAwait(false);
             }
         }
-        public async void price()
+        public async void price(SocketMessage message)
         {
             Random random = new Random();
             byte red = (byte)random.Next(0, 256);
             byte green = (byte)random.Next(0, 256);
             byte blue = (byte)random.Next(0, 256);
+            string[] read = File.ReadAllLines("price.txt");
+            EmbedBuilder builder = new EmbedBuilder()
+                .WithColor(red, green, blue)
+                .AddField("현재 1빵당 MUC 환율은...", $"1빵:{read[6]}MUC다뮤!");
+            Embed embed = builder.Build();
+            await message.Channel.SendMessageAsync("",embed:embed).ConfigureAwait(false);
         }
     }
 }

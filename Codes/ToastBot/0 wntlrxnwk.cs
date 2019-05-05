@@ -121,20 +121,20 @@ namespace ToastBot
                 Embed embed = builder.Build();
                 await message.Channel.SendMessageAsync("",embed:embed).ConfigureAwait(false);
             }
-
-            string[] note = File.ReadAllLines("playerhave.txt");
-            string[] notepadt = File.ReadAllLines("Players.txt");
-            string moneywhid = message.Author.Id.ToString();
-            int where = Array.IndexOf(note, moneywhid);
-            int moneywh = Array.IndexOf(notepadt, moneywhid);
-            int number = int.Parse(usermessage[4]);
-            int moneywhmoney = int.Parse(notepadt[moneywh + 1]);
-            string price = File.ReadAllText("price.txt");
-            string[] pricea = price.Split(' ', '\n');
-
-
             if (usermessage[2] == "매수")
             {
+
+                string[] note = File.ReadAllLines("playerhave.txt");
+                string[] notepadt = File.ReadAllLines("Players.txt");
+                string moneywhid = message.Author.Id.ToString();
+                int where = Array.IndexOf(note, moneywhid);
+                int moneywh = Array.IndexOf(notepadt, moneywhid);
+                int number = int.Parse(usermessage[4]);
+                int moneywhmoney = int.Parse(notepadt[moneywh + 1]);
+                string price = File.ReadAllText("price.txt");
+                string[] pricea = price.Split(' ', '\n');
+
+
                 if (usermessage[3] == "HC주식회사")
                 {
                     int hprice = int.Parse(pricea[0]) * number;
@@ -481,6 +481,18 @@ namespace ToastBot
             }
             else if (usermessage[2] == "매도")
             {
+
+                string[] note = File.ReadAllLines("playerhave.txt");
+                string[] notepadt = File.ReadAllLines("Players.txt");
+                string moneywhid = message.Author.Id.ToString();
+                int where = Array.IndexOf(note, moneywhid);
+                int moneywh = Array.IndexOf(notepadt, moneywhid);
+                int number = int.Parse(usermessage[4]);
+                int moneywhmoney = int.Parse(notepadt[moneywh + 1]);
+                string price = File.ReadAllText("price.txt");
+                string[] pricea = price.Split(' ', '\n');
+
+
                 if (usermessage[3] == "HC주식회사")
                 {
                     int he = Array.IndexOf(note, message.Author.Id.ToString());

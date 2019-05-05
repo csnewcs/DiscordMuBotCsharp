@@ -10,9 +10,8 @@ namespace ToastBot
 {
     class spin
     {
-        public void Cycle()
+        public async void Cycle()
         {
-            mutecycle();
             Random random = new Random();
             DateTime time = DateTime.Now;
             byte hour = (byte)time.Hour;
@@ -21,7 +20,7 @@ namespace ToastBot
             byte upminute = minute;
 
         a:
-            Thread.Sleep(1000);
+            await Task.Delay(1000);
             while (hour != uphour || minute != upminute)
             {
                 time = DateTime.Now;
@@ -130,22 +129,22 @@ namespace ToastBot
 
             goto a;
         }
-        private async void mutecycle()
+        public async void mutecycle()
         {
             Random random = new Random();
             for (; true;)
             {
-                int a = random.Next(1,1000000);
-                await Task.Delay(a);
                 string[] notepad = File.ReadAllLines("price.txt");
                 int up = random.Next(1, 101);
                 int upanddown = random.Next(1, 875);
-                int write = int.Parse(notepad[12]);
+                int write = int.Parse(notepad[6]);
                 if (up < 50) write += upanddown;
                 else write -= upanddown;
                 if (write < 1) write = int.Parse(notepad[12]);
-                notepad[12] = write.ToString();
+                notepad[6] = write.ToString();
                 File.WriteAllLines("price.txt",notepad);
+                int a = random.Next(1, 100000);
+                Thread.Sleep(a);
             }
         }
     }
