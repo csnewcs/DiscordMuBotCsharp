@@ -39,8 +39,10 @@ namespace 토스트봇
         public void cycle()
         {
             ToastBot.spin spin = new ToastBot.spin();
+            ToastBot.season season = new ToastBot.season();
             spin.Cycle();
             spin.mutecycle();
+            season.Season();
         }
 
         public async Task MessageReceived(SocketMessage message)

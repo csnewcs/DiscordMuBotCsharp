@@ -28,17 +28,18 @@ namespace ToastBot
                 todate = DateTime.Now.AddDays(80);
                 json["Next"] = todate.ToString();
                 File.WriteAllText("user.json", json.ToString());
-                ulong getuserid = ulong.Parse(notepad[chltkd() - 1]);
+                chltkd();
+                ulong getuserid = ulong.Parse(notepad[loop - 1]);
                 SocketUser socketUser = client.GetUser(getuserid);
                 string write = File.ReadAllText("koseason.txt") +
                     $"시즌 기간: {DateTime.Now.AddDays(160)} ~ {DateTime.Now}\n" +
                     $"1위: {socketUser.Username}\n" +
-                    $"1위의 소지금: {notepad[chltkd()]}\n\n";
+                    $"1위의 소지금: {notepad[loop - 1]}\n\n";
                 File.WriteAllText("koseason.txt",write);
                 write = File.ReadAllText("enseason.txt") +
                     $"Season period : {DateTime.Now.AddDays(160)} ~ {DateTime.Now}\n" +
                     $"1st: {socketUser.Username}\n" +
-                    $"bread of 1st: {notepad[chltkd()]}\n\n";
+                    $"bread of 1st: {notepad[loop - 1]}\n\n";
                 File.WriteAllText("enseason.txt", write);
             }
         }
@@ -59,7 +60,6 @@ namespace ToastBot
                 }
                 arr = arr + 3;
             }
-            File.WriteAllLines("Players.txt", notepad);
             return best;
         }
     }
