@@ -47,11 +47,11 @@ namespace ToastBot
 
             string[] playername = getnickname(ottff, client);
 
-            if (playername[0] == null) playername[0] = "이 서버에 없는 사람이다뮤 =ㅇ=";
-            if (playername[1] == null) playername[1] = "이 서버에 없는 사람이다뮤 =ㅇ=";
-            if (playername[2] == null) playername[2] = "이 서버에 없는 사람이다뮤 =ㅇ=";
-            if (playername[3] == null) playername[3] = "이 서버에 없는 사람이다뮤 =ㅇ=";
-            if (playername[4] == null) playername[4] = "이 서버에 없는 사람이다뮤 =ㅇ=";
+            if (playername[0] == null) playername[0] = "이 서버에 없는 사람이다뮤 =ㅇ=;;";
+            if (playername[1] == null) playername[1] = "이 서버에 없는 사람이다뮤 =ㅇ=;;";
+            if (playername[2] == null) playername[2] = "이 서버에 없는 사람이다뮤 =ㅇ=;;";
+            if (playername[3] == null) playername[3] = "이 서버에 없는 사람이다뮤 =ㅇ=;;";
+            if (playername[4] == null) playername[4] = "이 서버에 없는 사람이다뮤 =ㅇ=;;";
 
             File.WriteAllLines("Players.txt", notepad);
             if (score[0] > -1)

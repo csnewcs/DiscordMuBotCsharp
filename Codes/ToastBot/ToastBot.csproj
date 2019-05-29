@@ -241,6 +241,7 @@
     <Compile Include="0 wntlrxnwk.cs" />
     <Compile Include="0 remittance.cs" />
     <Compile Include="reboot.cs" />
+    <Compile Include="season.cs" />
     <Compile Include="spin.cs" />
   </ItemGroup>
   <ItemGroup>
