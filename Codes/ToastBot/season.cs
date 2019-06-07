@@ -41,6 +41,11 @@ namespace ToastBot
                     $"1st: {socketUser.Username}\n" +
                     $"bread of 1st: {notepad[loop - 1]}\n\n";
                 File.WriteAllText("enseason.txt", write);
+                File.WriteAllText("Players.txt","");
+                File.WriteAllText("playerhave.txt", "");
+                File.WriteAllText("price.txt","610 20\n500 35\n480 15\n360 50\n240 75\n100 100");
+                File.WriteAllText("time.txt", "");
+                File.WriteAllText("user.json", "");
             }
         }
         private int chltkd()

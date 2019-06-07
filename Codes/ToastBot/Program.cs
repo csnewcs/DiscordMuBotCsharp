@@ -42,7 +42,7 @@ namespace 토스트봇
             ToastBot.season season = new ToastBot.season();
             spin.Cycle();
             spin.mutecycle();
-            season.Season();
+            season.Season(client);
         }
 
         public async Task MessageReceived(SocketMessage message)
