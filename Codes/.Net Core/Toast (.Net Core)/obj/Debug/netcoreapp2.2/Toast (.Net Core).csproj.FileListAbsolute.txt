@@ -1,0 +1,11 @@
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\bin\Debug\netcoreapp2.2\Toast (.Net Core).deps.json
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\bin\Debug\netcoreapp2.2\Toast (.Net Core).runtimeconfig.json
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\bin\Debug\netcoreapp2.2\Toast (.Net Core).runtimeconfig.dev.json
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\bin\Debug\netcoreapp2.2\Toast (.Net Core).dll
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\obj\Debug\netcoreapp2.2\Toast (.Net Core).csprojAssemblyReference.cache
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\obj\Debug\netcoreapp2.2\Toast (.Net Core).csproj.CoreCompileInputs.cache
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\obj\Debug\netcoreapp2.2\Toast (.Net Core).AssemblyInfoInputs.cache
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\obj\Debug\netcoreapp2.2\Toast (.Net Core).AssemblyInfo.cs
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\bin\Debug\netcoreapp2.2\Toast (.Net Core).pdb
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\obj\Debug\netcoreapp2.2\Toast (.Net Core).dll
+C:\Users\hj666\Desktop\프로그래밍\DiscordMuBotCsharp\Codes\.Net Core\Toast (.Net Core)\Toast (.Net Core)\obj\Debug\netcoreapp2.2\Toast (.Net Core).pdb
