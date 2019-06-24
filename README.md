@@ -22,7 +22,7 @@ Codes안에 폴더 이름인 ToastBot 이 봇을 만들 때 이름입니다
 
 4. Codes\ToastBot\bin\Debug\ToastBot.exe를 실행한다
 
- * Copyright (c) 2019, PMH Studio, MIT Licenced
+* Copyright (c) 2019, PMH Studio, MIT Licenced
 
 ### Project Dir
 > PMH Studio
