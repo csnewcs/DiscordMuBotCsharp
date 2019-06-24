@@ -1,14 +1,16 @@
-# Discord ¥ìBot CsharpVer
+# Discord Î¼Bot CsharpVer
  [![Codacy Badge](https://api.codacy.com/project/badge/Grade/a8095179c19148e4b0914ccc5880b86c)](https://www.codacy.com/app/hj666c2/DiscordMuBotCsharp?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=hj666c2/DiscordMuBotCsharp&amp;utm_campaign=Badge_Grade) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/hj666c2/DiscordMubotCsharp.svg)
  
-ÀÌ ÇÁ·Î±×·¥ÀÇ ÀúÀÛ±ÇÀº ±âº»ÀûÀ¸·Î PMH Studio / CS¿¡°Ô ÀÖ½À´Ï´Ù @hj666c2<br />
-ÀÌ º¿Àº ÀÏ¹İÀûÀÎ ¼­¹ö °ü¸®º¸´Ù ¿À¶ôÂÊÀ¸·Î Ä¡¿ìÃÄ ÀÖ½À´Ï´Ù. (ÀÌ¹Ì Node¹öÀüÀÌ ÀÖ±â ¶§¹®¿¡)<br />
-¸¸¾à¿¡ ¹®ÀÇÇÒ »çÇ×ÀÌ ÀÖÀ¸½Ã´Ù¸é Discord MuBot Supports¿¡¼­ ÇØ ÁÖ½Ã¸é °¨»çÇÏ°Ú½À´Ï´Ù.<br />
-¸¸¾à Node.js¹öÀüÀ» ¿øÇÏ½Å´Ù¸é https://github.com/PMHStudio/DiscordMuBot ¿¡¼­ È®ÀÎÇÏ½Ã¸é µË´Ï´Ù.<br />
-Codes¾È¿¡ Æú´õ ÀÌ¸§ÀÎ ToastBot ÀÌ º¿À» ¸¸µé ¶§ ÀÌ¸§ÀÔ´Ï´Ù <br >
+ì´ í”„ë¡œê·¸ë¨ì˜ ì €ì‘ê¶Œì€ ê¸°ë³¸ì ìœ¼ë¡œ PMH Studio / CSì—ê²Œ ìˆìŠµë‹ˆë‹¤ @hj666c2<br />
+ì´ ë´‡ì€ ì¼ë°˜ì ì¸ ì„œë²„ ê´€ë¦¬ë³´ë‹¤ ì˜¤ë½ìª½ìœ¼ë¡œ ì¹˜ìš°ì³ ìˆìŠµë‹ˆë‹¤. (ì´ë¯¸ Nodeë²„ì „ì´ ìˆê¸° ë•Œë¬¸ì—)<br />
+ë§Œì•½ì— ë¬¸ì˜í•  ì‚¬í•­ì´ ìˆìœ¼ì‹œë‹¤ë©´ Discord MuBot Supportsì—ì„œ í•´ ì£¼ì‹œë©´ ê°ì‚¬í•˜ê² ìŠµë‹ˆë‹¤.<br />
+ë§Œì•½ Node.jsë²„ì „ì„ ì›í•˜ì‹ ë‹¤ë©´ https://github.com/PMHStudio/DiscordMuBot ì—ì„œ í™•ì¸í•˜ì‹œë©´ ë©ë‹ˆë‹¤.<br />
+Codesì•ˆì— í´ë” ì´ë¦„ì¸ ToastBot ì´ ë´‡ì„ ë§Œë“¤ ë•Œ ì´ë¦„ì…ë‹ˆë‹¤ <br >
 
-»ç¿ë¹ı <br />
-1. ÆÄÀÏÀ» ³»·Á¹Ş´Â´Ù <br />
-2. °èÁ¤ È¯°æ º¯¼ö¿¡ muto¸¦ ¸¸µé¾î¼­ º¿ÀÇ ÅäÅ«³Ö´Â´Ù <br />
-3. 'ÇÊ¿äÇÑ °Íµé'Æú´õ ³»ÀÇ ÆÄÀÏµéÀ» Codes\ToastBot\bin\DebugÆú´õ·Î ¿Å°ÜÁØ´Ù <br >
-4. Codes\ToastBot\bin\Debug\ToastBot.exe¸¦ ½ÇÇàÇÑ´Ù
+ì‚¬ìš©ë²• <br />
+1. íŒŒì¼ì„ ë‚´ë ¤ë°›ëŠ”ë‹¤ <br />
+2. ê³„ì • í™˜ê²½ ë³€ìˆ˜ì— mutoë¥¼ ë§Œë“¤ì–´ì„œ ë´‡ì˜ í† í°ë„£ëŠ”ë‹¤ <br />
+3. 'í•„ìš”í•œ ê²ƒë“¤'í´ë” ë‚´ì˜ íŒŒì¼ë“¤ì„ Codes\ToastBot\bin\Debugí´ë”ë¡œ ì˜®ê²¨ì¤€ë‹¤ <br >
+4. Codes\ToastBot\bin\Debug\ToastBot.exeë¥¼ ì‹¤í–‰í•œë‹¤
+
+ *Copyright (c) 2019, PMH Studio, MIT Licenced
